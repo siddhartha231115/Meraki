@@ -1,7 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowRight, Compass, Feather, Heart, Shield, Sparkles, Sun } from "lucide-react";
 import hero from "@/assets/hero.jpg";
-import coachAsset from "@/assets/srimathi.jpg.asset.json";
+import coachAsset from "@/assets/srimathi-portrait.jpg.asset.json";
 const coach = coachAsset.url;
 import bookAsset from "@/assets/anchor-book.jpg.asset.json";
 const journal = bookAsset.url;

@@ -11,6 +11,11 @@ export const SITE = {
   // Paste a full https:// Calendly or booking URL here. While empty, booking buttons open the request form.
   bookingUrl: "",
   instagram: "[INSTAGRAM URL]",
+  // Anchor book links — paste the real URLs when ready. Buttons hide until a https:// link is set.
+  book: {
+    buyUrl: "",
+    sampleUrl: "",
+  },
   prices: {
     oneToOne: "From [PRICE]",
     program: "[PRICE] or payment plan",
