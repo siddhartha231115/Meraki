@@ -70,13 +70,6 @@ const STEPS = [
   { n: "04", t: "Grow", d: "Take supported, practical action and review your progress." },
 ];
 
-const APPROACH = [
-  { t: "Pause", d: "Slow down and notice what is happening." },
-  { t: "Understand", d: "Explore the beliefs and patterns holding you back." },
-  { t: "Choose", d: "Decide what truly aligns with your needs and values." },
-  { t: "Move", d: "Take realistic, intentional steps forward." },
-];
-
 function Home() {
   return (
     <main id="top">
