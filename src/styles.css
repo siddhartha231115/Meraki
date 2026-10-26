@@ -47,32 +47,32 @@
 
 :root {
   --radius: 1rem;
-  --ivory: oklch(0.985 0.008 85);
-  --cream: oklch(0.955 0.018 80);
-  --sage: oklch(0.56 0.045 145);
-  --sage-soft: oklch(0.9 0.025 140);
-  --rose: oklch(0.7 0.06 20);
-  --rose-soft: oklch(0.93 0.025 25);
-  --charcoal: oklch(0.27 0.01 60);
+  --ivory: oklch(0.995 0.004 300);
+  --cream: oklch(0.965 0.018 295);
+  --sage: oklch(0.6 0.1 295);
+  --sage-soft: oklch(0.93 0.03 295);
+  --rose: oklch(0.58 0.13 305);
+  --rose-soft: oklch(0.945 0.025 300);
+  --charcoal: oklch(0.27 0.02 295);
 
   --background: var(--ivory);
   --foreground: var(--charcoal);
-  --card: oklch(0.995 0.005 85);
+  --card: oklch(0.998 0.003 300);
   --card-foreground: var(--charcoal);
-  --popover: oklch(0.995 0.005 85);
+  --popover: oklch(0.998 0.003 300);
   --popover-foreground: var(--charcoal);
-  --primary: oklch(0.45 0.045 150);
+  --primary: oklch(0.48 0.11 295);
   --primary-foreground: var(--ivory);
   --secondary: var(--cream);
   --secondary-foreground: var(--charcoal);
   --muted: var(--cream);
-  --muted-foreground: oklch(0.47 0.015 60);
+  --muted-foreground: oklch(0.47 0.02 295);
   --accent: var(--rose-soft);
   --accent-foreground: var(--charcoal);
   --destructive: oklch(0.55 0.18 27);
   --destructive-foreground: var(--ivory);
-  --border: oklch(0.89 0.018 75);
-  --input: oklch(0.86 0.02 75);
+  --border: oklch(0.9 0.02 295);
+  --input: oklch(0.87 0.025 295);
   --ring: var(--sage);
   --shadow-soft: 0 10px 40px -20px oklch(0.27 0.01 60 / 0.25);
   --shadow-lift: 0 24px 60px -24px oklch(0.27 0.01 60 / 0.35);
