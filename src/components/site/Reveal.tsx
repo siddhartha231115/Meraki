@@ -8,8 +8,8 @@ export function Reveal({
   as: Tag = "div",
 }: {
   children: ReactNode;
-  className?: string;
-  delay?: number;
+  className?: string | undefined;
+  delay?: number | undefined;
   as?: ElementType;
 }) {
   const ref = useRef<HTMLElement>(null);

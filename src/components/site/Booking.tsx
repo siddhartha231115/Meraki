@@ -143,8 +143,8 @@ function Field({
 }: {
   id: string;
   label: string;
-  error?: string;
-  className?: string;
+  error?: string | undefined;
+  className?: string | undefined;
   children: ReactNode;
 }) {
   return (
