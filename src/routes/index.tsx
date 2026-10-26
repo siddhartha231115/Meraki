@@ -77,16 +77,16 @@ function Home() {
       {/* HERO */}
       <section className="relative overflow-hidden bg-cream pt-28 md:pt-32">
         <div className="container-page grid items-center gap-12 pb-20 lg:grid-cols-[1.05fr_1fr] lg:gap-16 lg:pb-28">
-          <Reveal>
+          <Reveal className="text-center">
             <p className="eyebrow mb-6">Life and mindset coaching</p>
             <h1 className="text-5xl leading-[1.02] sm:text-6xl lg:text-7xl">
               Come back to the person you were <em className="text-sage">always</em> meant to be.
             </h1>
-            <p className="mt-7 max-w-lg text-lg leading-relaxed text-muted-foreground">
+            <p className="mx-auto mt-7 max-w-lg text-lg leading-relaxed text-muted-foreground">
               Personal coaching to help you quiet the noise, reconnect with yourself, and move forward with clarity and
               confidence.
             </p>
-            <div className="mt-10 flex flex-wrap items-center gap-6">
+            <div className="mt-10 flex flex-wrap items-center justify-center gap-6">
               <BookButton />
               <a href="#coaching" className="group inline-flex items-center gap-2 text-sm font-medium tracking-wide">
                 Explore Coaching
