@@ -1,8 +1,10 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowRight, Compass, Feather, Heart, Shield, Sparkles, Sun } from "lucide-react";
 import hero from "@/assets/hero.jpg";
-import coach from "@/assets/coach.jpg";
-import journal from "@/assets/journal.jpg";
+import coachAsset from "@/assets/srimathi.jpg.asset.json";
+const coach = coachAsset.url;
+import bookAsset from "@/assets/anchor-book.jpg.asset.json";
+const journal = bookAsset.url;
 import { FAQS, SITE } from "@/lib/site";
 import { BookButton } from "@/components/site/Booking";
 import { Reveal } from "@/components/site/Reveal";
@@ -154,9 +156,6 @@ function Home() {
               loading="lazy"
               className="aspect-[4/5] w-full rounded-3xl object-cover shadow-lift"
             />
-            <p className="mt-3 text-xs text-muted-foreground">
-              <span className="placeholder-note">Replace with a real photo of the coach.</span>
-            </p>
           </Reveal>
           <div>
             <SectionHeading eyebrow="Meet your coach" title="Support that feels human, practical, and personal.">
@@ -243,11 +242,11 @@ function Home() {
           <Reveal delay={150}>
             <img
               src={journal}
-              alt="An open journal and pen beside a ceramic cup and eucalyptus on a wooden table"
-              width={1600}
-              height={912}
+              alt="Anchor: Come Home to Yourself, an emotional reset workbook by Srimathi"
+              width={832}
+              height={1296}
               loading="lazy"
-              className="aspect-[4/5] w-full rounded-3xl object-cover shadow-lift lg:aspect-[4/5]"
+              className="mx-auto w-full max-w-md rounded-3xl object-cover shadow-lift"
             />
           </Reveal>
         </div>

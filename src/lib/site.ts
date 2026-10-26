@@ -5,7 +5,7 @@
 export const SITE = {
   name: "Meraki",
   tagline: "Find clarity. Build confidence. Create a life that feels like yours.",
-  coachName: "[COACH NAME]",
+  coachName: "Srimathi",
   location: "[LOCATION OR ONLINE WORLDWIDE]",
   email: "[EMAIL]",
   // Paste a full https:// Calendly or booking URL here. While empty, booking buttons open the request form.

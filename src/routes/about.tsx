@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
-import coach from "@/assets/coach.jpg";
+import coachAsset from "@/assets/srimathi.jpg.asset.json";
+const coach = coachAsset.url;
 import { SITE } from "@/lib/site";
 import { FinalCta, PageHeader } from "@/components/site/sections";
 import { Reveal } from "@/components/site/Reveal";
