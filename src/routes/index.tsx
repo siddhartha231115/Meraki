@@ -1,6 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowRight, Compass, Feather, Heart, Shield, Sparkles, Sun } from "lucide-react";
-import hero from "@/assets/hero.jpg";
+import heroAsset from "@/assets/hero-photo.jpg.asset.json";
+const hero = heroAsset.url;
 import coachAsset from "@/assets/srimathi-portrait.jpg.asset.json";
 const coach = coachAsset.url;
 import bookAsset from "@/assets/anchor-book.jpg.asset.json";
@@ -101,11 +102,11 @@ function Home() {
             <div className="absolute -left-6 -top-6 hidden size-40 rounded-full bg-rose-soft lg:block" aria-hidden />
             <img
               src={hero}
-              alt="A woman sitting peacefully by a sunlit window holding a cup of tea"
-              width={1024}
-              height={1280}
+              alt="Srimathi seated at a cafe table with an open notebook and a pen, looking up toward the camera"
+              width={960}
+              height={960}
               fetchPriority="high"
-              className="relative aspect-[4/5] w-full rounded-t-[12rem] rounded-b-3xl object-cover shadow-lift"
+              className="relative aspect-square w-full rounded-t-[12rem] rounded-b-3xl object-cover shadow-lift"
             />
           </Reveal>
         </div>
@@ -319,8 +320,8 @@ function Home() {
             <img
               src={hero}
               alt=""
-              width={1024}
-              height={1280}
+              width={960}
+              height={960}
               loading="lazy"
               className="hidden h-full w-full object-cover opacity-90 lg:block"
             />
