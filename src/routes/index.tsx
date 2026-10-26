@@ -224,20 +224,54 @@ function Home() {
         </div>
       </section>
 
-      {/* APPROACH */}
-      <section className="py-24 md:py-32">
+      {/* THE BOOK */}
+      <section id="book" className="py-24 md:py-32">
         <div className="container-page grid gap-14 lg:grid-cols-2 lg:items-center">
           <div>
-            <SectionHeading eyebrow="The Meraki approach" title="Change begins when you learn to listen to yourself." />
-            <div className="mt-12 grid gap-px overflow-hidden rounded-3xl border border-border bg-border sm:grid-cols-2">
-              {APPROACH.map((a, i) => (
-                <Reveal key={a.t} delay={i * 100} className="bg-background p-7">
-                  <p className="font-serif text-sm italic text-rose">Part {i + 1}</p>
-                  <h3 className="mt-1 text-3xl">{a.t}</h3>
-                  <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{a.d}</p>
-                </Reveal>
-              ))}
-            </div>
+            <SectionHeading eyebrow="The book" title="Anchor — come home to yourself.">
+              <p>
+                A quiet, honest book for women navigating emotional exhaustion, identity loss, and the slow work of
+                returning to themselves. Part reflection, part field guide — written for the late nights when the mind
+                finally goes still.
+              </p>
+            </SectionHeading>
+            <Reveal delay={100}>
+              <ul className="mt-10 space-y-5">
+                {[
+                  "For women learning to come back to themselves.",
+                  "For the ones who gave so much to everyone else, they forgot what they needed too.",
+                  "For anyone exhausted from pretending they’re okay all the time.",
+                ].map((line) => (
+                  <li key={line} className="flex gap-4 font-serif text-xl italic leading-snug text-foreground/85">
+                    <span className="mt-3 size-1.5 shrink-0 rounded-full bg-rose" aria-hidden />
+                    {line}
+                  </li>
+                ))}
+              </ul>
+              <div className="mt-10 flex flex-wrap gap-4">
+                <a
+                  href={SITE.book.buyUrl || "#book"}
+                  target={SITE.book.buyUrl ? "_blank" : undefined}
+                  rel="noreferrer"
+                  className="inline-flex h-12 items-center rounded-full bg-primary px-8 text-[0.95rem] tracking-wide text-primary-foreground transition-colors hover:bg-charcoal"
+                >
+                  Buy Anchor
+                </a>
+                <a
+                  href={SITE.book.sampleUrl || "#book"}
+                  target={SITE.book.sampleUrl ? "_blank" : undefined}
+                  rel="noreferrer"
+                  className="inline-flex h-12 items-center rounded-full border border-foreground/20 px-8 text-[0.95rem] tracking-wide transition-colors hover:bg-foreground hover:text-background"
+                >
+                  Read a Sample
+                </a>
+              </div>
+              {(!SITE.book.buyUrl || !SITE.book.sampleUrl) && (
+                <p className="placeholder-note mt-4 inline-block text-xs">
+                  Add the buy and sample links in src/lib/site.ts to activate these buttons.
+                </p>
+              )}
+            </Reveal>
           </div>
           <Reveal delay={150}>
             <img
