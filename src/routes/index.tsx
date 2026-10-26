@@ -266,16 +266,6 @@ function Home() {
               )}
             </Reveal>
           </div>
-          <Reveal delay={150}>
-            <img
-              src={journal}
-              alt="Anchor: Come Home to Yourself, an emotional reset workbook by Srimathi"
-              width={832}
-              height={1296}
-              loading="lazy"
-              className="mx-auto w-full max-w-md rounded-3xl object-cover shadow-lift"
-            />
-          </Reveal>
         </div>
       </section>
 
