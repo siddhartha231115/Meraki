@@ -106,7 +106,7 @@ function Home() {
               width={960}
               height={960}
               fetchPriority="high"
-              className="relative aspect-[4/5] w-full rounded-t-[12rem] rounded-b-3xl object-cover shadow-lift"
+              className="relative aspect-square w-full rounded-t-[12rem] rounded-b-3xl object-cover shadow-lift"
             />
           </Reveal>
         </div>
