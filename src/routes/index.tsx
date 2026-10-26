@@ -154,7 +154,7 @@ function Home() {
               width={1024}
               height={1280}
               loading="lazy"
-              className="aspect-[4/5] w-full rounded-3xl object-cover shadow-lift"
+              className="aspect-[4/5] w-full rounded-3xl object-cover object-left shadow-lift"
             />
           </Reveal>
           <div>

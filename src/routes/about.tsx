@@ -27,7 +27,7 @@ function About() {
       </PageHeader>
       <section className="container-page grid gap-14 py-20 lg:grid-cols-[1fr_1.2fr]">
         <Reveal>
-          <img src={coach} alt={`Portrait of ${SITE.coachName}`} width={1024} height={1280} loading="lazy" className="aspect-[4/5] w-full rounded-3xl object-cover shadow-lift" />
+          <img src={coach} alt={`Portrait of ${SITE.coachName}`} width={1024} height={1280} loading="lazy" className="aspect-[4/5] w-full rounded-3xl object-cover object-left shadow-lift" />
         </Reveal>
         <Reveal className="space-y-6 text-lg leading-relaxed text-foreground/85">
           <p className="placeholder-note inline text-sm">Placeholder story — please rewrite in your own words.</p>
