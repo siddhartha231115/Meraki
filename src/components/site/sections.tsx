@@ -1,0 +1,220 @@
+import type { ReactNode } from "react";
+import { Check, Star } from "lucide-react";
+import { Link } from "@tanstack/react-router";
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
+import { FAQS, SITE } from "@/lib/site";
+import { BookButton } from "./Booking";
+import { Reveal } from "./Reveal";
+import { cn } from "@/lib/utils";
+
+export function SectionHeading({
+  eyebrow,
+  title,
+  children,
+  center,
+}: {
+  eyebrow?: string;
+  title: ReactNode;
+  children?: ReactNode;
+  center?: boolean;
+}) {
+  return (
+    <Reveal className={cn("max-w-2xl", center && "mx-auto text-center")}>
+      {eyebrow && <p className="eyebrow mb-4">{eyebrow}</p>}
+      <h2 className="text-4xl md:text-5xl">{title}</h2>
+      {children && <div className="mt-5 text-lg leading-relaxed text-muted-foreground">{children}</div>}
+    </Reveal>
+  );
+}
+
+/** Small botanical line ornament */
+export function Sprig({ className }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 120 40" fill="none" aria-hidden className={cn("h-8 w-24 text-sage", className)}>
+      <path d="M2 30 C 40 30, 70 20, 118 6" stroke="currentColor" strokeWidth="1" />
+      {[20, 40, 60, 80, 100].map((x, i) => (
+        <g key={x} stroke="currentColor" strokeWidth="1">
+          <path d={`M${x} ${28 - i * 4} q 6 -10 14 -10 q -4 9 -14 10`} />
+          <path d={`M${x} ${28 - i * 4} q 4 8 12 9 q -2 -8 -12 -9`} />
+        </g>
+      ))}
+    </svg>
+  );
+}
+
+const SERVICES = [
+  {
+    name: "Free Clarity Call",
+    price: "Free",
+    points: ["30-minute private conversation", "Identify the main challenge", "Leave with one practical next step"],
+    cta: "Book Your Call",
+    action: "book" as const,
+  },
+  {
+    name: "1:1 Coaching",
+    price: SITE.prices.oneToOne,
+    points: ["Personalized private sessions", "Goal and action planning", "Ongoing accountability and support"],
+    cta: "Explore 1:1 Coaching",
+    featured: true,
+    action: "link" as const,
+  },
+  {
+    name: "Meraki Transformation Program",
+    price: SITE.prices.program,
+    points: [
+      `A structured ${SITE.prices.programWeeks}-week journey`,
+      "Weekly private coaching",
+      "Reflection exercises and personalized action plan",
+    ],
+    cta: "View the Program",
+    action: "link" as const,
+  },
+];
+
+export function Services() {
+  return (
+    <div className="grid gap-6 lg:grid-cols-3 lg:items-stretch">
+      {SERVICES.map((s, i) => (
+        <Reveal key={s.name} delay={i * 120}>
+          <article
+            className={cn(
+              "card-soft relative flex h-full flex-col p-8",
+              s.featured && "border-sage/60 bg-sage-soft/50 lg:-translate-y-4 lg:hover:-translate-y-6",
+            )}
+          >
+            {s.featured && (
+              <span className="absolute -top-3 left-8 rounded-full bg-primary px-3 py-1 text-xs font-medium tracking-wide text-primary-foreground">
+                Most popular
+              </span>
+            )}
+            <h3 className="text-3xl">{s.name}</h3>
+            <p className="mt-3 font-serif text-xl text-sage">{s.price}</p>
+            <ul className="mt-6 flex-1 space-y-3">
+              {s.points.map((p) => (
+                <li key={p} className="flex gap-3 text-sm leading-relaxed">
+                  <Check className="mt-0.5 size-4 shrink-0 text-sage" aria-hidden />
+                  {p}
+                </li>
+              ))}
+            </ul>
+            <div className="mt-8">
+              {s.action === "book" ? (
+                <BookButton variant={s.featured ? "hero" : "soft"} className="w-full">
+                  {s.cta}
+                </BookButton>
+              ) : (
+                <Link
+                  to="/coaching"
+                  className={cn(
+                    "inline-flex h-12 w-full items-center justify-center rounded-full text-[0.95rem] tracking-wide transition-all duration-300",
+                    s.featured
+                      ? "bg-primary text-primary-foreground hover:bg-charcoal"
+                      : "border border-foreground/20 hover:bg-foreground hover:text-background",
+                  )}
+                >
+                  {s.cta}
+                </Link>
+              )}
+            </div>
+          </article>
+        </Reveal>
+      ))}
+    </div>
+  );
+}
+
+const TESTIMONIALS = [
+  { quote: "I came in feeling scattered and left each session with something real to work on. I finally feel like I’m making decisions for me.", who: "A.M.", service: "1:1 Coaching" },
+  { quote: "The clarity call alone helped me name what I’d been avoiding for years. It was gentle, honest, and surprisingly practical.", who: "Priya", service: "Free Clarity Call" },
+  { quote: "Learning to set boundaries without guilt has changed my relationships and my work. I feel steadier in myself.", who: "J.K.", service: "Transformation Program" },
+];
+
+export function Testimonials() {
+  return (
+    <>
+      <div className="grid gap-6 md:grid-cols-3">
+        {TESTIMONIALS.map((t, i) => (
+          <Reveal key={t.who} delay={i * 120}>
+            <figure className="card-soft flex h-full flex-col p-8">
+              <span className="placeholder-note self-start text-[0.7rem] uppercase tracking-widest text-muted-foreground">
+                Placeholder testimonial
+              </span>
+              <div className="mt-4 flex gap-1 text-rose" aria-label="5 out of 5 stars">
+                {Array.from({ length: 5 }).map((_, k) => (
+                  <Star key={k} className="size-4 fill-current" aria-hidden />
+                ))}
+              </div>
+              <blockquote className="mt-4 flex-1 font-serif text-xl leading-snug">“{t.quote}”</blockquote>
+              <figcaption className="mt-6 text-sm">
+                <span className="font-semibold">{t.who}</span>
+                <span className="text-muted-foreground"> · {t.service}</span>
+              </figcaption>
+            </figure>
+          </Reveal>
+        ))}
+      </div>
+      <p className="mt-8 text-center text-xs text-muted-foreground">
+        Shared with client permission. Results vary for each individual.
+      </p>
+    </>
+  );
+}
+
+export function Faq() {
+  return (
+    <Accordion type="single" collapsible className="divide-y divide-border border-y border-border">
+      {FAQS.map((f, i) => (
+        <AccordionItem key={f.q} value={`q${i}`} className="border-0">
+          <AccordionTrigger className="py-6 text-left font-serif text-xl hover:no-underline md:text-2xl">
+            {f.q}
+          </AccordionTrigger>
+          <AccordionContent className="pb-6 text-base leading-relaxed text-muted-foreground">{f.a}</AccordionContent>
+        </AccordionItem>
+      ))}
+    </Accordion>
+  );
+}
+
+export function FinalCta() {
+  return (
+    <section className="relative overflow-hidden bg-primary py-24 text-primary-foreground md:py-32">
+      <Sprig className="absolute left-6 top-10 h-16 w-48 opacity-30 text-primary-foreground" />
+      <Sprig className="absolute bottom-10 right-6 h-16 w-48 rotate-180 opacity-30 text-primary-foreground" />
+      <Reveal className="container-page relative text-center">
+        <h2 className="mx-auto max-w-3xl text-4xl md:text-6xl">Your next chapter can begin with one conversation.</h2>
+        <p className="mx-auto mt-6 max-w-xl text-lg text-primary-foreground/80">
+          Book a free clarity call and take the first step toward a clearer, more confident life.
+        </p>
+        <BookButton variant="light" className="mt-10" />
+      </Reveal>
+    </section>
+  );
+}
+
+export function PageHeader({ eyebrow, title, children }: { eyebrow: string; title: string; children?: ReactNode }) {
+  return (
+    <section className="bg-cream pb-16 pt-36 md:pb-20 md:pt-44">
+      <div className="container-page">
+        <p className="eyebrow mb-4">{eyebrow}</p>
+        <h1 className="max-w-3xl text-5xl md:text-6xl">{title}</h1>
+        {children && <div className="mt-6 max-w-2xl text-lg leading-relaxed text-muted-foreground">{children}</div>}
+      </div>
+    </section>
+  );
+}
+
+export function LegalPage({ title, updated, children }: { title: string; updated?: string; children: ReactNode }) {
+  return (
+    <main>
+      <PageHeader eyebrow="Legal" title={title}>
+        <p>
+          <span className="placeholder-note">Template copy — please have this reviewed by a qualified professional before publishing.</span>
+          {updated && <span className="mt-2 block text-sm">Last updated: {updated}</span>}
+        </p>
+      </PageHeader>
+      <article className="container-page max-w-3xl space-y-6 py-16 leading-relaxed text-foreground/85 [&_h2]:mt-10 [&_h2]:text-3xl [&_h2]:text-foreground">
+        {children}
+      </article>
+    </main>
+  );
+}
