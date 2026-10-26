@@ -8,3 +8,7 @@
 > Commits you push to the connected branch sync back to Lovable and show up in
 > the editor, so keep the branch in a working state.
 <!-- LOVABLE:END -->
+
+## Rules
+- All editable business details (name, email, prices, booking URL, FAQ) live in src/lib/site.ts so non-devs can edit one file.
+- Booking buttons use BookButton/useBooking: open the external booking URL when set, otherwise the request-form modal.
