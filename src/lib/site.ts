@@ -19,8 +19,69 @@ export const SITE = {
   prices: {
     oneToOne: "From [PRICE]",
     program: "[PRICE] or payment plan",
-    programWeeks: "[6/8/12]",
+    programWeeks: "6",
   },
+};
+
+/**
+ * The 6-Week RESET — the ANCHOR Method.
+ * Each week follows one letter. Edit the wording here and it updates everywhere.
+ */
+export const RESET = {
+  name: "The 6-Week RESET",
+  heading: "The 6-Week RESET — guided by the ANCHOR Method.",
+  intro:
+    "A six-week coaching journey for women who feel emotionally exhausted, disconnected, or quietly stuck. Each week follows one letter of the ANCHOR Method — a structured, professional framework for moving from reactivity to self-trust, and from survival to a steady, sovereign sense of self.",
+  weeks: [
+    {
+      n: "01",
+      letter: "A",
+      name: "Acknowledge",
+      q: "What am I feeling right now?",
+      d: "Meet the present emotion without judgment. Name what is alive in the body and the mind, so it can finally be heard.",
+    },
+    {
+      n: "02",
+      letter: "N",
+      name: "Notice",
+      q: "Where is this coming from?",
+      d: "Trace the pattern to its origin. Distinguish the present moment from the older story your nervous system is replaying.",
+    },
+    {
+      n: "03",
+      letter: "C",
+      name: "Check",
+      q: "Is this mine to carry?",
+      d: "Examine the weight you have been holding. Release what was inherited, assumed, or absorbed from others.",
+    },
+    {
+      n: "04",
+      letter: "H",
+      name: "Honour",
+      q: "What is actually true for me?",
+      d: "Move beneath obligation and performance to the quiet truth underneath. Honour it as valid, even when it is inconvenient.",
+    },
+    {
+      n: "05",
+      letter: "O",
+      name: "Own",
+      q: "What response aligns with who I am?",
+      d: "Choose a response rooted in values, not reaction. Practice acting from self-worth rather than self-protection.",
+    },
+    {
+      n: "06",
+      letter: "R",
+      name: "Return",
+      q: "Come back to yourself.",
+      d: "Integrate the work into daily life. Return — again and again — to the steady, sovereign self you have been rebuilding.",
+    },
+  ],
+  whoFor: [
+    "You feel emotionally exhausted, disconnected, or quietly stuck.",
+    "You gave so much to everyone else that you forgot what you needed too.",
+    "You are tired of pretending you’re okay all the time.",
+    "You want a steadier relationship with yourself — not another quick fix.",
+  ],
 };
 
 export const hasBookingUrl = () => /^https?:\/\//.test(SITE.bookingUrl);

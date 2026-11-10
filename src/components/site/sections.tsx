@@ -2,7 +2,7 @@ import type { ReactNode } from "react";
 import { Check, Star } from "lucide-react";
 import { Link } from "@tanstack/react-router";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
-import { FAQS, SITE } from "@/lib/site";
+import { FAQS, RESET, SITE } from "@/lib/site";
 import { BookButton } from "./Booking";
 import { Reveal } from "./Reveal";
 import { cn } from "@/lib/utils";
@@ -59,12 +59,12 @@ const SERVICES = [
     action: "link" as const,
   },
   {
-    name: "Meraki Transformation Program",
+    name: "The 6-Week RESET",
     price: SITE.prices.program,
     points: [
       `A structured ${SITE.prices.programWeeks}-week journey`,
       "Weekly private coaching",
-      "Reflection exercises and personalized action plan",
+      "One letter of the ANCHOR Method each week",
     ],
     cta: "View the Program",
     action: "link" as const,
@@ -123,10 +123,73 @@ export function Services() {
   );
 }
 
+/** The 6-Week RESET — one letter of the ANCHOR Method per week. */
+export function AnchorMethod({ className }: { className?: string }) {
+  return (
+    <section id="reset" className={cn("bg-cream py-24 md:py-32", className)}>
+      <div className="container-page">
+        <SectionHeading eyebrow="The ANCHOR Method" title={RESET.heading} center>
+          <p>{RESET.intro}</p>
+        </SectionHeading>
+        <Sprig className="mx-auto mt-8" />
+
+        <ol className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+          {RESET.weeks.map((w, i) => (
+            <Reveal as="li" key={w.n} delay={(i % 3) * 100} className="h-full">
+              <article className="card-soft flex h-full flex-col p-7">
+                <div className="flex items-baseline justify-between gap-4">
+                  <span className="font-serif text-5xl leading-none text-primary" aria-hidden>
+                    {w.letter}
+                  </span>
+                  <span className="text-xs font-semibold tracking-[0.22em] text-muted-foreground">{w.n}</span>
+                </div>
+                <h3 className="mt-5 text-2xl">
+                  {w.letter} — {w.name}
+                </h3>
+                <p className="mt-3 font-serif text-lg italic leading-snug text-sage">“{w.q}”</p>
+                <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{w.d}</p>
+              </article>
+            </Reveal>
+          ))}
+        </ol>
+
+        <Reveal className="mt-16 grid overflow-hidden rounded-[2rem] bg-card shadow-soft lg:grid-cols-[1fr_1.15fr]">
+          <div className="p-8 md:p-12">
+            <p className="eyebrow mb-4">Who it’s for</p>
+            <h3 className="text-3xl leading-tight md:text-4xl">For women learning to come back to themselves.</h3>
+            <p className="placeholder-note mt-5 inline-block text-xs">
+              Add or edit this list in src/lib/site.ts.
+            </p>
+          </div>
+          <ul className="space-y-4 bg-sage-soft/50 p-8 md:p-12">
+            {RESET.whoFor.map((line) => (
+              <li key={line} className="flex gap-4 font-serif text-xl italic leading-snug text-foreground/85">
+                <span className="mt-3 size-1.5 shrink-0 rounded-full bg-rose" aria-hidden />
+                {line}
+              </li>
+            ))}
+          </ul>
+        </Reveal>
+
+        <Reveal className="mt-12 text-center">
+          <BookButton variant="hero">Join the Reset</BookButton>
+          <p className="mt-5 text-sm text-muted-foreground">
+            Prefer to talk first?{" "}
+            <Link to="/contact" className="text-foreground underline underline-offset-4">
+              Ask a question
+            </Link>
+            .
+          </p>
+        </Reveal>
+      </div>
+    </section>
+  );
+}
+
 const TESTIMONIALS = [
   { quote: "I came in feeling scattered and left each session with something real to work on. I finally feel like I’m making decisions for me.", who: "A.M.", service: "1:1 Coaching" },
   { quote: "The clarity call alone helped me name what I’d been avoiding for years. It was gentle, honest, and surprisingly practical.", who: "Priya", service: "Free Clarity Call" },
-  { quote: "Learning to set boundaries without guilt has changed my relationships and my work. I feel steadier in myself.", who: "J.K.", service: "Transformation Program" },
+  { quote: "Learning to set boundaries without guilt has changed my relationships and my work. I feel steadier in myself.", who: "J.K.", service: "The 6-Week RESET" },
 ];
 
 export function Testimonials() {

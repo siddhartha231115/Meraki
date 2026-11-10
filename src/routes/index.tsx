@@ -9,7 +9,7 @@ const journal = bookAsset.url;
 import { FAQS, SITE } from "@/lib/site";
 import { BookButton } from "@/components/site/Booking";
 import { Reveal } from "@/components/site/Reveal";
-import { Faq, FinalCta, SectionHeading, Services, Sprig, Testimonials } from "@/components/site/sections";
+import { AnchorMethod, Faq, FinalCta, SectionHeading, Services, Sprig, Testimonials } from "@/components/site/sections";
 
 const TITLE = "Meraki Coaching | Clarity, Confidence and Personal Growth";
 const DESC =
@@ -269,6 +269,8 @@ function Home() {
           </div>
         </div>
       </section>
+
+      <AnchorMethod />
 
       {/* TESTIMONIALS */}
       <section id="testimonials" className="bg-rose-soft/60 py-24 md:py-32">

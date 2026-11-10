@@ -1,14 +1,14 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { SITE } from "@/lib/site";
-import { Faq, FinalCta, PageHeader, SectionHeading, Services } from "@/components/site/sections";
+import { AnchorMethod, Faq, FinalCta, PageHeader, SectionHeading, Services } from "@/components/site/sections";
 
 export const Route = createFileRoute("/coaching")({
   head: () => ({
     meta: [
       { title: "Coaching Services | Meraki Coaching" },
-      { name: "description", content: "Free clarity calls, private 1:1 coaching, and the Meraki Transformation Program — online sessions for clarity and confidence." },
+      { name: "description", content: "Free clarity calls, private 1:1 coaching, and the 6-Week RESET guided by the ANCHOR Method — online sessions for clarity and confidence." },
       { property: "og:title", content: "Coaching Services | Meraki Coaching" },
-      { property: "og:description", content: "Explore Meraki’s free clarity call, 1:1 coaching, and transformation program." },
+      { property: "og:description", content: "Explore Meraki’s free clarity call, 1:1 coaching, and the 6-Week RESET." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
@@ -37,15 +37,17 @@ function Coaching() {
             <p className="placeholder-note mt-2 inline-block text-sm">[Confirm session length, frequency, and packages.]</p>
           </div>
           <div>
-            <h2 className="text-4xl">Meraki Transformation Program</h2>
+            <h2 className="text-4xl">The 6-Week RESET</h2>
             <p className="mt-4 leading-relaxed text-muted-foreground">
               A structured {SITE.prices.programWeeks}-week journey with weekly private coaching, reflection exercises, and
-              a personalized plan — moving through Pause, Understand, Choose, and Move.
+              a personalized plan — one letter of the ANCHOR Method each week: Acknowledge, Notice, Check, Honour, Own,
+              Return.
             </p>
             <p className="mt-4 font-serif text-xl text-sage">{SITE.prices.program}</p>
           </div>
         </div>
       </section>
+      <AnchorMethod />
       <section className="container-page grid gap-12 py-24 lg:grid-cols-[1fr_1.6fr]">
         <SectionHeading eyebrow="FAQ" title="Before you begin." />
         <Faq />
