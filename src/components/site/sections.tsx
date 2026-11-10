@@ -256,7 +256,7 @@ export function FinalCta() {
 
 export function PageHeader({ eyebrow, title, children }: { eyebrow: string; title: string; children?: ReactNode }) {
   return (
-    <section className="bg-cream pb-16 pt-36 md:pb-20 md:pt-44">
+    <section className="bg-cream blend-cream blend-b pb-16 pt-36 md:pb-20 md:pt-44">
       <div className="container-page">
         <p className="eyebrow mb-4">{eyebrow}</p>
         <h1 className="max-w-3xl text-5xl md:text-6xl">{title}</h1>

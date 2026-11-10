@@ -25,7 +25,7 @@ function Coaching() {
       <section className="container-page py-24">
         <Services />
       </section>
-      <section className="bg-cream py-24">
+      <section className="bg-cream blend-cream blend-t py-24">
         <div className="container-page grid gap-12 md:grid-cols-2">
           <div>
             <h2 className="text-4xl">1:1 Coaching</h2>
@@ -47,7 +47,7 @@ function Coaching() {
           </div>
         </div>
       </section>
-      <AnchorMethod />
+      <AnchorMethod className="blend-cream blend-b" />
       <section className="container-page grid gap-12 py-24 lg:grid-cols-[1fr_1.6fr]">
         <SectionHeading eyebrow="FAQ" title="Before you begin." />
         <Faq />

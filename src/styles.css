@@ -155,3 +155,33 @@
   border-radius: 0.25rem;
   padding-inline: 0.25rem;
 }
+
+/* Soft blend where a tinted section meets the plain white page background.
+   Pick the tint (blend-cream / blend-sage / blend-rose), then the edge:
+   blend-t = top, blend-b = bottom, blend-tb = both. */
+@utility blend-cream { --blend-to: var(--cream); }
+@utility blend-sage { --blend-to: color-mix(in oklab, var(--sage-soft) 60%, var(--background)); }
+@utility blend-rose { --blend-to: color-mix(in oklab, var(--rose-soft) 60%, var(--background)); }
+
+@utility blend-t {
+  background-image: linear-gradient(to bottom, var(--background), var(--blend-to, var(--background)));
+  background-repeat: no-repeat;
+  background-position: top;
+  background-size: 100% var(--blend-h, 6rem);
+}
+
+@utility blend-b {
+  background-image: linear-gradient(to top, var(--background), var(--blend-to, var(--background)));
+  background-repeat: no-repeat;
+  background-position: bottom;
+  background-size: 100% var(--blend-h, 6rem);
+}
+
+@utility blend-tb {
+  background-image:
+    linear-gradient(to bottom, var(--background), var(--blend-to, var(--background))),
+    linear-gradient(to top, var(--background), var(--blend-to, var(--background)));
+  background-repeat: no-repeat;
+  background-position: top, bottom;
+  background-size: 100% var(--blend-h, 6rem), 100% var(--blend-h, 6rem);
+}

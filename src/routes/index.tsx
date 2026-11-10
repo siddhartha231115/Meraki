@@ -75,7 +75,7 @@ function Home() {
   return (
     <main id="top">
       {/* HERO */}
-      <section className="relative overflow-hidden bg-cream pt-28 md:pt-32">
+      <section className="relative overflow-hidden bg-cream blend-cream blend-b [--blend-h:5rem] pt-28 md:pt-32">
         <div className="container-page grid items-center gap-12 pb-20 lg:grid-cols-[1.05fr_1fr] lg:gap-16 lg:pb-28">
           <Reveal className="text-center">
             <p className="eyebrow mb-6">Life and mindset coaching</p>
@@ -139,7 +139,7 @@ function Home() {
       </section>
 
       {/* ABOUT */}
-      <section id="about" className="bg-cream py-24 md:py-32">
+      <section id="about" className="bg-cream blend-cream blend-tb py-24 md:py-32">
         <div className="container-page grid items-center gap-14 lg:grid-cols-2">
           <Reveal>
             <img
@@ -188,7 +188,7 @@ function Home() {
       </section>
 
       {/* HOW IT WORKS */}
-      <section id="how-it-works" className="bg-sage-soft/60 py-24 md:py-32">
+      <section id="how-it-works" className="bg-sage-soft/60 blend-sage blend-tb py-24 md:py-32">
         <div className="container-page">
           <SectionHeading eyebrow="How it works" title="A simple path toward meaningful change." />
           <ol className="relative mt-16 grid gap-6 md:grid-cols-4 md:gap-0">
@@ -270,10 +270,10 @@ function Home() {
         </div>
       </section>
 
-      <AnchorMethod />
+      <AnchorMethod className="blend-cream blend-t" />
 
       {/* TESTIMONIALS */}
-      <section id="testimonials" className="bg-rose-soft/60 py-24 md:py-32">
+      <section id="testimonials" className="bg-rose-soft/60 blend-rose blend-b py-24 md:py-32">
         <div className="container-page">
           <SectionHeading eyebrow="Kind words" title="In their own words." center />
           <div className="mt-14">
@@ -322,7 +322,7 @@ function Home() {
       </section>
 
       {/* FAQ */}
-      <section id="faq" className="bg-cream py-24 md:py-32">
+      <section id="faq" className="bg-cream blend-cream blend-t py-24 md:py-32">
         <div className="container-page grid gap-12 lg:grid-cols-[1fr_1.6fr]">
           <SectionHeading eyebrow="FAQ" title="Questions, gently answered.">
             <p>
