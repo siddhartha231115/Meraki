@@ -73,7 +73,7 @@ const STEPS = [
 
 function Home() {
   return (
-    <main id="top">
+    <>
       {/* HERO */}
       <section className="relative overflow-hidden bg-cream blend-cream blend-b [--blend-h:5rem] pt-28 md:pt-32">
         <div className="container-page grid items-center gap-12 pb-20 lg:grid-cols-[1.05fr_1fr] lg:gap-16 lg:pb-28">
@@ -336,6 +336,6 @@ function Home() {
       </section>
 
       <FinalCta />
-    </main>
+    </>
   );
 }

@@ -19,7 +19,7 @@ export const Route = createFileRoute("/contact")({
 
 function Contact() {
   return (
-    <main>
+    <>
       <PageHeader eyebrow="Contact" title="Let’s start with a conversation.">
         <p>Request your free clarity call below, or write to me directly.</p>
       </PageHeader>
@@ -47,6 +47,6 @@ function Contact() {
           <BookingForm />
         </div>
       </section>
-    </main>
+    </>
   );
 }

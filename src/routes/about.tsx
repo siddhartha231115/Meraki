@@ -21,7 +21,7 @@ export const Route = createFileRoute("/about")({
 
 function About() {
   return (
-    <main>
+    <>
       <PageHeader eyebrow="My story" title="Support that feels human, practical, and personal.">
         <p>Hi, I’m {SITE.coachName} — the person behind Meraki.</p>
       </PageHeader>
@@ -50,6 +50,6 @@ function About() {
         </Reveal>
       </section>
       <FinalCta />
-    </main>
+    </>
   );
 }

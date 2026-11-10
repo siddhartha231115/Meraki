@@ -18,7 +18,7 @@ export const Route = createFileRoute("/coaching")({
 
 function Coaching() {
   return (
-    <main>
+    <>
       <PageHeader eyebrow="Coaching services" title="Ways we can work together.">
         <p>Every journey begins with a free conversation. From there, we choose the support that suits you.</p>
       </PageHeader>
@@ -53,6 +53,6 @@ function Coaching() {
         <Faq />
       </section>
       <FinalCta />
-    </main>
+    </>
   );
 }

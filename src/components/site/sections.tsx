@@ -268,7 +268,7 @@ export function PageHeader({ eyebrow, title, children }: { eyebrow: string; titl
 
 export function LegalPage({ title, updated, children }: { title: string; updated?: string; children: ReactNode }) {
   return (
-    <main>
+    <>
       <PageHeader eyebrow="Legal" title={title}>
         <p>
           <span className="placeholder-note">Template copy — please have this reviewed by a qualified professional before publishing.</span>
@@ -278,6 +278,6 @@ export function LegalPage({ title, updated, children }: { title: string; updated
       <article className="container-page max-w-3xl space-y-6 py-16 leading-relaxed text-foreground/85 [&_h2]:mt-10 [&_h2]:text-3xl [&_h2]:text-foreground">
         {children}
       </article>
-    </main>
+    </>
   );
 }

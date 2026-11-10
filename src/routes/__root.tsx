@@ -8,7 +8,7 @@ import {
   Scripts,
   type ErrorComponentProps,
 } from "@tanstack/react-router";
-import { useEffect, type ReactNode } from "react";
+import { useEffect, type MouseEvent, type ReactNode } from "react";
 
 import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
@@ -120,17 +120,38 @@ function RootShell({ children }: { children: ReactNode }) {
   );
 }
 
+// First focusable thing on every page: Tab reveals it, Enter moves focus into the page body.
+function SkipLink() {
+  const onActivate = (e: MouseEvent<HTMLAnchorElement>) => {
+    const target = document.getElementById("main-content");
+    if (!target) return;
+    e.preventDefault();
+    target.focus({ preventScroll: true });
+    target.scrollIntoView({ behavior: "smooth", block: "start" });
+  };
+
+  return (
+    <a
+      href="#main-content"
+      onClick={onActivate}
+      className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[60] focus:inline-flex focus:items-center focus:rounded-full focus:border focus:border-border focus:bg-background focus:px-5 focus:py-2.5 focus:text-sm focus:font-medium focus:tracking-wide focus:text-foreground focus:shadow-lift focus:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+    >
+      Skip to main content
+    </a>
+  );
+}
+
 function RootComponent() {
   const { queryClient } = Route.useRouteContext();
 
   return (
     <QueryClientProvider client={queryClient}>
       <BookingProvider>
-        <a href="#top" className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[60] focus:rounded-full focus:bg-background focus:px-4 focus:py-2">
-          Skip to content
-        </a>
+        <SkipLink />
         <Header />
-        <Outlet />
+        <main id="main-content" tabIndex={-1} className="focus:outline-none">
+          <Outlet />
+        </main>
         <Footer />
         <Toaster position="top-center" />
       </BookingProvider>
