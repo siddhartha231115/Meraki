@@ -39,8 +39,8 @@ export function Header() {
           <Link to="/" aria-label="Meraki home">
             <Wordmark />
           </Link>
-          <nav aria-label="Main" className="hidden lg:block">
-            <ul className="flex items-center gap-7 text-sm">
+          <nav aria-label="Main" className="hidden min-[920px]:block">
+            <ul className="flex items-center gap-7 text-sm min-[920px]:gap-5 xl:gap-7">
               {NAV.map((n) => (
                 <li key={n.label}>
                   <Link
@@ -54,11 +54,11 @@ export function Header() {
               ))}
             </ul>
           </nav>
-          <div className="hidden lg:block">
+          <div className="hidden min-[920px]:block">
             <BookButton size="default" className="h-10 px-5" />
           </div>
           <button
-            className="inline-flex size-11 items-center justify-center rounded-full border border-border lg:hidden"
+            className="inline-flex size-11 items-center justify-center rounded-full border border-border min-[920px]:hidden"
             aria-label={open ? "Close menu" : "Open menu"}
             aria-expanded={open}
             aria-controls="mobile-menu"
@@ -68,7 +68,7 @@ export function Header() {
           </button>
         </div>
         {open && (
-          <nav id="mobile-menu" aria-label="Mobile" className="border-t border-border bg-background lg:hidden">
+          <nav id="mobile-menu" aria-label="Mobile" className="border-t border-border bg-background min-[920px]:hidden">
             <ul className="container-page flex flex-col py-4">
               {NAV.map((n) => (
                 <li key={n.label}>
@@ -101,7 +101,7 @@ export function Header() {
       <button
         onClick={book}
         className={cn(
-          "fixed bottom-4 left-1/2 z-40 -translate-x-1/2 rounded-full bg-primary px-6 py-3.5 text-sm font-medium tracking-wide text-primary-foreground shadow-lift transition-all duration-500 lg:hidden",
+          "fixed bottom-4 left-1/2 z-40 -translate-x-1/2 rounded-full bg-primary px-6 py-3.5 text-sm font-medium tracking-wide text-primary-foreground shadow-lift transition-all duration-500 min-[920px]:hidden",
           scrolled && !open ? "translate-y-0 opacity-100" : "pointer-events-none translate-y-6 opacity-0",
         )}
         tabIndex={scrolled && !open ? 0 : -1}
