@@ -240,7 +240,7 @@ export function Faq() {
 
 export function FinalCta() {
   return (
-    <section className="relative overflow-hidden bg-primary py-24 text-primary-foreground md:py-32">
+    <section data-no-float-cta className="relative overflow-hidden bg-primary py-24 text-primary-foreground md:py-32">
       <Sprig className="absolute left-6 top-10 h-16 w-48 opacity-30 text-primary-foreground" />
       <Sprig className="absolute bottom-10 right-6 h-16 w-48 rotate-180 opacity-30 text-primary-foreground" />
       <Reveal className="container-page relative text-center">

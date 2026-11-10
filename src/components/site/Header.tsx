@@ -16,6 +16,7 @@ export function Wordmark({ className }: { className?: string }) {
 export function Header() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
+  const [showFloat, setShowFloat] = useState(false);
   const { open: book } = useBooking();
   const toggleRef = useRef<HTMLButtonElement>(null);
   const menuRef = useRef<HTMLElement>(null);
@@ -49,10 +50,26 @@ export function Header() {
   };
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 24);
+    // Hide the floating button while a section with its own booking call
+    // (the clarity-call section, the final CTA band or the footer) is on screen.
+    const onScroll = () => {
+      const h = window.innerHeight;
+      const covered = Array.from(
+        document.querySelectorAll<HTMLElement>("#contact, footer, [data-no-float-cta]"),
+      ).some((el) => {
+        const r = el.getBoundingClientRect();
+        return r.top < h && r.bottom > 0;
+      });
+      setScrolled(window.scrollY > 24);
+      setShowFloat(window.scrollY > 24 && !covered);
+    };
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
+    window.addEventListener("resize", onScroll);
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      window.removeEventListener("resize", onScroll);
+    };
   }, []);
 
   return (
@@ -135,10 +152,10 @@ export function Header() {
         onClick={book}
         className={cn(
           "fixed bottom-4 left-1/2 z-40 -translate-x-1/2 rounded-full bg-primary px-6 py-3.5 text-sm font-medium tracking-wide text-primary-foreground shadow-lift transition-all duration-500 min-[920px]:hidden",
-          scrolled && !open ? "translate-y-0 opacity-100" : "pointer-events-none translate-y-6 opacity-0",
+          showFloat && !open ? "translate-y-0 opacity-100" : "pointer-events-none translate-y-6 opacity-0",
         )}
-        tabIndex={scrolled && !open ? 0 : -1}
-        aria-hidden={!scrolled || open}
+        tabIndex={showFloat && !open ? 0 : -1}
+        aria-hidden={!showFloat || open}
       >
         Book a Free Clarity Call
       </button>
