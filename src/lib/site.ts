@@ -87,13 +87,11 @@ export const RESET = {
 export const hasBookingUrl = () => /^https?:\/\//.test(SITE.bookingUrl);
 
 export const NAV = [
-  { label: "Home", hash: "top" },
-  { label: "About", hash: "about" },
-  { label: "Coaching", hash: "coaching" },
-  { label: "How It Works", hash: "how-it-works" },
-  { label: "Testimonials", hash: "testimonials" },
-  { label: "FAQ", hash: "faq" },
-  { label: "Contact", hash: "contact" },
+  { label: "Home", to: "/" },
+  { label: "About Me", to: "/about" },
+  { label: "Products", to: "/coaching" },
+  { label: "Testimonials", to: "/", hash: "testimonials" },
+  { label: "Contact", to: "/contact" },
 ] as const;
 
 export const FAQS = [

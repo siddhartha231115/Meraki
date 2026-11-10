@@ -42,10 +42,10 @@ export function Header() {
           <nav aria-label="Main" className="hidden lg:block">
             <ul className="flex items-center gap-7 text-sm">
               {NAV.map((n) => (
-                <li key={n.hash}>
+                <li key={n.label}>
                   <Link
-                    to="/"
-                    hash={n.hash}
+                    to={n.to}
+                    {...("hash" in n ? { hash: n.hash } : {})}
                     className="relative py-1 text-foreground/80 transition-colors after:absolute after:inset-x-0 after:-bottom-0.5 after:h-px after:origin-left after:scale-x-0 after:bg-sage after:transition-transform hover:text-foreground hover:after:scale-x-100"
                   >
                     {n.label}
@@ -71,10 +71,10 @@ export function Header() {
           <nav id="mobile-menu" aria-label="Mobile" className="border-t border-border bg-background lg:hidden">
             <ul className="container-page flex flex-col py-4">
               {NAV.map((n) => (
-                <li key={n.hash}>
+                <li key={n.label}>
                   <Link
-                    to="/"
-                    hash={n.hash}
+                    to={n.to}
+                    {...("hash" in n ? { hash: n.hash } : {})}
                     onClick={() => setOpen(false)}
                     className="block py-3 font-serif text-2xl"
                   >

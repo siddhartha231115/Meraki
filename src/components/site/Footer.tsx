@@ -17,8 +17,8 @@ export function Footer() {
         </div>
         <FooterCol title="Explore">
           {NAV.map((n) => (
-            <li key={n.hash}>
-              <Link to="/" hash={n.hash} className="hover:text-ivory">
+            <li key={n.label}>
+              <Link to={n.to} {...("hash" in n ? { hash: n.hash } : {})} className="hover:text-ivory">
                 {n.label}
               </Link>
             </li>
