@@ -164,16 +164,6 @@ function Home() {
               </p>
             </SectionHeading>
             <Reveal delay={100}>
-              <blockquote className="mt-8 border-l-2 border-rose pl-5 font-serif text-2xl italic leading-snug">
-                “You don’t need to become someone new. You need room to become more yourself.”
-              </blockquote>
-              <ul className="mt-8 grid gap-4 sm:grid-cols-3">
-                {["Compassion", "Honesty", "Practical progress"].map((v) => (
-                  <li key={v} className="rounded-2xl border border-border bg-card px-4 py-4 text-center font-serif text-lg">
-                    {v}
-                  </li>
-                ))}
-              </ul>
               <Link
                 to="/about"
                 className="mt-10 inline-flex h-12 items-center rounded-full border border-foreground/20 px-7 text-[0.95rem] tracking-wide transition-colors hover:bg-foreground hover:text-background"
