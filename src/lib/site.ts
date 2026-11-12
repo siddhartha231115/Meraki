@@ -6,8 +6,10 @@ export const SITE = {
   name: "Meraki",
   tagline: "Find clarity. Build confidence. Create a life that feels like yours.",
   coachName: "Srimathi",
-  location: "[LOCATION OR ONLINE WORLDWIDE]",
+  location: "Bengaluru, India",
   email: "[EMAIL]",
+  // Full https:// address of the live site, e.g. https://merakilifecoaching.org
+  siteUrl: "[WEBSITE URL]",
   // Paste a full https:// Calendly or booking URL here. While empty, booking buttons open the request form.
   bookingUrl: "",
   instagram: "[INSTAGRAM URL]",

@@ -266,13 +266,27 @@ export function PageHeader({ eyebrow, title, children }: { eyebrow: string; titl
   );
 }
 
-export function LegalPage({ title, updated, children }: { title: string; updated?: string; children: ReactNode }) {
+export function LegalPage({
+  title,
+  updated,
+  template = true,
+  children,
+}: {
+  title: string;
+  updated?: string;
+  template?: boolean;
+  children: ReactNode;
+}) {
   return (
     <>
       <PageHeader eyebrow="Legal" title={title}>
         <p>
-          <span className="placeholder-note">Template copy — please have this reviewed by a qualified professional before publishing.</span>
-          {updated && <span className="mt-2 block text-sm">Last updated: {updated}</span>}
+          {template && (
+            <span className="placeholder-note">
+              Template copy — please have this reviewed by a qualified professional before publishing.
+            </span>
+          )}
+          {updated && <span className={cn("block text-sm", template && "mt-2")}>Last updated: {updated}</span>}
         </p>
       </PageHeader>
       <article className="container-page max-w-3xl space-y-6 py-16 leading-relaxed text-foreground/85 [&_h2]:mt-10 [&_h2]:text-3xl [&_h2]:text-foreground">

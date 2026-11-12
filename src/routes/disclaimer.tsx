@@ -13,14 +13,37 @@ export const Route = createFileRoute("/disclaimer")({
     ],
   }),
   component: () => (
-    <LegalPage title="Coaching Disclaimer">
-      <h2>Coaching is not therapy</h2>
-      <p>Meraki coaching is not psychotherapy, counselling, medical treatment, or crisis care, and is not a replacement for support from a licensed mental health professional or doctor.</p>
-      <h2>No guaranteed results</h2>
-      <p>Every person’s experience is different. Testimonials reflect individual experiences and are not a promise of specific outcomes.</p>
-      <h2>Seeking professional help</h2>
-      <p>If you are experiencing a mental health condition, please continue working with your healthcare provider. Coaching may complement, but never replace, that care.</p>
-      <h2>In an emergency</h2>
+    <LegalPage title="Coaching Disclaimer" template={false}>
+      <p>At Meraki, we believe in the power of self-awareness, reflection, and intentional personal growth.</p>
+      <p>However, it is important to understand what coaching involves.</p>
+
+      <h2>Coaching Is Not Therapy</h2>
+      <p>
+        Meraki provides mindset and personal development coaching. Coaching is designed to help individuals explore
+        their thoughts, beliefs, goals, values, and behavioural patterns.
+      </p>
+      <p>Coaching is not psychotherapy, counselling, psychiatric treatment, or medical advice.</p>
+
+      <h2>Your Journey Is Your Responsibility</h2>
+      <p>
+        Coaching is a collaborative process. While we provide guidance, questions, tools, and exercises, the decisions
+        and actions you take are your own.
+      </p>
+
+      <h2>No Guaranteed Outcomes</h2>
+      <p>
+        Every individual’s experience is different. We do not guarantee specific results, transformations, or outcomes
+        from participating in our programs.
+      </p>
+
+      <h2>When Additional Support May Be Needed</h2>
+      <p>
+        Coaching may not be appropriate for every situation. If you are experiencing significant emotional distress or
+        mental health concerns, we encourage you to seek support from a qualified mental health professional.
+      </p>
+      <p>Our intention is to support your personal growth while respecting the boundaries of coaching.</p>
+
+      <h2>In an Emergency</h2>
       <p>If you are in crisis or at risk of harm, please contact local emergency services or a crisis helpline immediately.</p>
     </LegalPage>
   ),
