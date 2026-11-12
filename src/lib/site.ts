@@ -10,6 +10,8 @@ export const SITE = {
   email: "[EMAIL]",
   // Full https:// address of the live site, e.g. https://merakilifecoaching.org
   siteUrl: "[WEBSITE URL]",
+  // Include the country code, e.g. +91 98765 43210
+  whatsapp: "[WHATSAPP NUMBER]",
   // Paste a full https:// Calendly or booking URL here. While empty, booking buttons open the request form.
   bookingUrl: "",
   instagram: "[INSTAGRAM URL]",
@@ -124,7 +126,7 @@ export const FAQS = [
   },
   {
     q: "What is your cancellation policy?",
-    a: "[Placeholder — coach to confirm.] Sessions can be rescheduled with at least 24 hours’ notice. Late cancellations may be charged in full.",
+    a: "Please give at least 24 hours’ notice to reschedule a session; later cancellations and missed sessions may be treated as a completed session. Program refunds are reviewed case by case. Full details are in our Cancellation and Refund Policy.",
   },
   {
     q: "Is everything I share confidential?",
