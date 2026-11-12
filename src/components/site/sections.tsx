@@ -2,7 +2,7 @@ import type { ReactNode } from "react";
 import { Check, Star } from "lucide-react";
 import { Link } from "@tanstack/react-router";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
-import { FAQS, RESET, SITE } from "@/lib/site";
+import { ANCHOR, FAQS, PROGRAMS, SITE } from "@/lib/site";
 import { BookButton } from "./Booking";
 import { Reveal } from "./Reveal";
 import { cn } from "@/lib/utils";
@@ -42,43 +42,48 @@ export function Sprig({ className }: { className?: string }) {
   );
 }
 
-const SERVICES = [
+type Offer = {
+  name: string;
+  price: string;
+  points: string[];
+  cta: string;
+  action: "book" | "link";
+  featured?: boolean;
+};
+
+const OFFERS: Offer[] = [
   {
     name: "Free Clarity Call",
     price: "Free",
     points: ["30-minute private conversation", "Identify the main challenge", "Leave with one practical next step"],
     cta: "Book Your Call",
-    action: "book" as const,
+    action: "book",
   },
   {
     name: "1:1 Coaching",
     price: SITE.prices.oneToOne,
     points: ["Personalized private sessions", "Goal and action planning", "Ongoing accountability and support"],
     cta: "Explore 1:1 Coaching",
-    featured: true,
-    action: "link" as const,
+    action: "link",
   },
-  {
-    name: "The 6-Week RESET",
-    price: SITE.prices.program,
-    points: [
-      `A structured ${SITE.prices.programWeeks}-week journey`,
-      "Weekly private coaching",
-      "One letter of the ANCHOR Method each week",
-    ],
-    cta: "View the Program",
-    action: "link" as const,
-  },
+  ...PROGRAMS.map((p): Offer => ({
+    name: p.name,
+    price: p.price,
+    points: p.points,
+    cta: `Explore ${p.short}`,
+    action: "link",
+    featured: p.featured,
+  })),
 ];
 
 export function Services() {
   return (
-    <div className="grid gap-6 lg:grid-cols-3 lg:items-stretch">
-      {SERVICES.map((s, i) => (
+    <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4 lg:items-stretch">
+      {OFFERS.map((s, i) => (
         <Reveal key={s.name} delay={i * 120}>
           <article
             className={cn(
-              "card-soft relative flex h-full flex-col p-8",
+              "card-soft relative flex h-full flex-col p-7",
               s.featured && "border-sage/60 bg-sage-soft/50 lg:-translate-y-4 lg:hover:-translate-y-6",
             )}
           >
@@ -87,7 +92,7 @@ export function Services() {
                 Most popular
               </span>
             )}
-            <h3 className="text-3xl">{s.name}</h3>
+            <h3 className="text-2xl">{s.name}</h3>
             <p className="mt-3 font-serif text-xl text-sage">{s.price}</p>
             <ul className="mt-6 flex-1 space-y-3">
               {s.points.map((p) => (
@@ -123,18 +128,18 @@ export function Services() {
   );
 }
 
-/** The 6-Week RESET — one letter of the ANCHOR Method per week. */
+/** Meraki Identity Reclaim — one letter of the ANCHOR Method per week. */
 export function AnchorMethod({ className }: { className?: string }) {
   return (
-    <section id="reset" className={cn("bg-cream py-24 md:py-32", className)}>
+    <section id="identity-reclaim" className={cn("bg-cream py-24 md:py-32", className)}>
       <div className="container-page">
-        <SectionHeading eyebrow="The ANCHOR Method" title={RESET.heading} center>
-          <p>{RESET.intro}</p>
+        <SectionHeading eyebrow="The ANCHOR Method" title={ANCHOR.heading} center>
+          <p>{ANCHOR.intro}</p>
         </SectionHeading>
         <Sprig className="mx-auto mt-8" />
 
         <ol className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-          {RESET.weeks.map((w, i) => (
+          {ANCHOR.weeks.map((w, i) => (
             <Reveal as="li" key={w.n} delay={(i % 3) * 100} className="h-full">
               <article className="card-soft flex h-full flex-col p-7">
                 <div className="flex items-baseline justify-between gap-4">
@@ -162,7 +167,7 @@ export function AnchorMethod({ className }: { className?: string }) {
             </p>
           </div>
           <ul className="space-y-4 bg-sage-soft/50 p-8 md:p-12">
-            {RESET.whoFor.map((line) => (
+            {ANCHOR.whoFor.map((line) => (
               <li key={line} className="flex gap-4 font-serif text-xl italic leading-snug text-foreground/85">
                 <span className="mt-3 size-1.5 shrink-0 rounded-full bg-rose" aria-hidden />
                 {line}
@@ -172,7 +177,7 @@ export function AnchorMethod({ className }: { className?: string }) {
         </Reveal>
 
         <Reveal className="mt-12 text-center">
-          <BookButton variant="hero">Join the Reset</BookButton>
+          <BookButton variant="hero">Join Identity Reclaim</BookButton>
           <p className="mt-5 text-sm text-muted-foreground">
             Prefer to talk first?{" "}
             <Link to="/contact" className="text-foreground underline underline-offset-4">
@@ -189,7 +194,7 @@ export function AnchorMethod({ className }: { className?: string }) {
 const TESTIMONIALS = [
   { quote: "I came in feeling scattered and left each session with something real to work on. I finally feel like I’m making decisions for me.", who: "A.M.", service: "1:1 Coaching" },
   { quote: "The clarity call alone helped me name what I’d been avoiding for years. It was gentle, honest, and surprisingly practical.", who: "Priya", service: "Free Clarity Call" },
-  { quote: "Learning to set boundaries without guilt has changed my relationships and my work. I feel steadier in myself.", who: "J.K.", service: "The 6-Week RESET" },
+  { quote: "Learning to set boundaries without guilt has changed my relationships and my work. I feel steadier in myself.", who: "J.K.", service: "Meraki Identity Reclaim" },
 ];
 
 export function Testimonials() {

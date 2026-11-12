@@ -8,13 +8,13 @@ export const SITE = {
   coachName: "Srimathi",
   location: "Bengaluru, India",
   email: "[EMAIL]",
+  // Paste a full https:// Calendly or booking URL here. While empty, booking buttons open the request form.
+  bookingUrl: "",
+  instagram: "[INSTAGRAM URL]",
   // Full https:// address of the live site, e.g. https://merakilifecoaching.org
   siteUrl: "[WEBSITE URL]",
   // Include the country code, e.g. +91 98765 43210
   whatsapp: "[WHATSAPP NUMBER]",
-  // Paste a full https:// Calendly or booking URL here. While empty, booking buttons open the request form.
-  bookingUrl: "",
-  instagram: "[INSTAGRAM URL]",
   // Anchor book links — paste the real URLs when ready. Buttons hide until a https:// link is set.
   book: {
     buyUrl: "",
@@ -22,20 +22,51 @@ export const SITE = {
   },
   prices: {
     oneToOne: "From [PRICE]",
-    program: "[PRICE] or payment plan",
-    programWeeks: "6",
+    selfWorthReset: "[PRICE]",
+    identityReclaim: "[PRICE] or payment plan",
   },
 };
 
 /**
- * The 6-Week RESET — the ANCHOR Method.
- * Each week follows one letter. Edit the wording here and it updates everywhere.
+ * The two Meraki programs. Edit the wording here and it updates on every page.
  */
-export const RESET = {
-  name: "The 6-Week RESET",
-  heading: "The 6-Week RESET — guided by the ANCHOR Method.",
+export const PROGRAMS = [
+  {
+    name: "Meraki Self-Worth Reset",
+    short: "Self-Worth Reset",
+    weeks: "3",
+    blurb:
+      "A shorter, three-week program focused on recognising patterns and beginning to make meaningful changes.",
+    points: ["Three weeks", "Recognise your patterns", "Begin meaningful changes"],
+    price: SITE.prices.selfWorthReset,
+    featured: false,
+  },
+  {
+    name: "Meraki Identity Reclaim",
+    short: "Identity Reclaim",
+    weeks: "6",
+    blurb:
+      "The six-week flagship program that explores self-worth, people-pleasing, boundaries, personal values, and identity development in greater depth.",
+    points: [
+      "Six weeks — the flagship program",
+      "Self-worth and people-pleasing",
+      "Boundaries and personal values",
+      "Identity development in greater depth",
+    ],
+    price: SITE.prices.identityReclaim,
+    featured: true,
+  },
+];
+
+/**
+ * The ANCHOR Method — one letter per week of Meraki Identity Reclaim.
+ * Edit the wording here and it updates everywhere.
+ */
+export const ANCHOR = {
+  program: "Meraki Identity Reclaim",
+  heading: "Meraki Identity Reclaim — guided by the ANCHOR Method.",
   intro:
-    "A six-week coaching journey for women who feel emotionally exhausted, disconnected, or quietly stuck. Each week follows one letter of the ANCHOR Method — a structured, professional framework for moving from reactivity to self-trust, and from survival to a steady, sovereign sense of self.",
+    "Meraki Identity Reclaim is a six-week flagship program that explores self-worth, people-pleasing, boundaries, personal values, and identity development in greater depth. Each week follows one letter of the ANCHOR Method — a structured, professional framework for moving from reactivity to self-trust, and from survival to a steady, sovereign sense of self.",
   weeks: [
     {
       n: "01",
@@ -94,7 +125,7 @@ export const NAV = [
   { label: "Home", to: "/" },
   { label: "About Me", to: "/about" },
   { label: "Products", to: "/coaching" },
-  { label: "6-Week Reset", to: "/", hash: "reset" },
+  { label: "Identity Reclaim", to: "/", hash: "identity-reclaim" },
   { label: "Testimonials", to: "/", hash: "testimonials" },
   { label: "Contact", to: "/contact" },
 ] as const;
