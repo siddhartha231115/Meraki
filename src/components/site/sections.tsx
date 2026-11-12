@@ -231,7 +231,16 @@ export function Faq() {
           <AccordionTrigger className="py-6 text-left font-serif text-xl hover:no-underline md:text-2xl">
             {f.q}
           </AccordionTrigger>
-          <AccordionContent className="pb-6 text-base leading-relaxed text-muted-foreground">{f.a}</AccordionContent>
+          <AccordionContent className="space-y-3 pb-6 text-base leading-relaxed text-muted-foreground">
+            {f.a.split("\n\n").map((p) => (
+              <p key={p}>{p}</p>
+            ))}
+            {f.link && (
+              <Link to={f.link.to} className="inline-flex text-foreground underline underline-offset-4">
+                {f.link.label}
+              </Link>
+            )}
+          </AccordionContent>
         </AccordionItem>
       ))}
     </Accordion>

@@ -99,37 +99,52 @@ export const NAV = [
   { label: "Contact", to: "/contact" },
 ] as const;
 
-export const FAQS = [
+export type FaqItem = {
+  q: string;
+  a: string;
+  link?: { to: "/cancellation"; label: string };
+};
+
+export const FAQS: FaqItem[] = [
   {
-    q: "What is life coaching?",
-    a: "Life coaching is a forward-focused partnership. Together we clarify what you want, explore what is getting in the way, and create practical steps to move toward it — at a pace that feels right for you.",
-  },
-  {
-    q: "How is coaching different from therapy?",
-    a: "Coaching is not therapy, counselling, medical treatment, or crisis care, and it is not a replacement for licensed mental health support. Therapy often explores healing and diagnosis; coaching focuses on present goals, choices, and action. If you are living with a mental health condition, coaching can sit alongside — not instead of — care from a licensed professional.",
+    q: "What is coaching?",
+    a: "Coaching is a collaborative conversation that helps you explore your thoughts, understand your patterns, gain clarity, and take meaningful steps towards your goals.",
   },
   {
     q: "Who is Meraki coaching for?",
-    a: "Adults who feel stuck, overwhelmed, or uncertain about their next step and are ready to reconnect with themselves — whether that means stronger boundaries, more confidence, or a clearer sense of direction.",
+    a: "Meraki primarily works with women aged 25–45 who want to strengthen their self-worth, develop healthier boundaries, move beyond people-pleasing patterns, and build a stronger sense of identity.",
   },
   {
-    q: "What happens during the free clarity call?",
-    a: "It is a relaxed 30-minute conversation. We talk about what feels difficult right now, what you would like to change, and you leave with one practical next step. There is no pressure to continue.",
+    q: "How are coaching sessions conducted?",
+    a: "All coaching sessions are conducted online. Details and meeting links will be shared after booking.",
   },
   {
-    q: "How many sessions will I need?",
-    a: "It depends on you and your goals. Some people find a few sessions helpful; others prefer a longer, structured journey. We will talk honestly about what makes sense during your clarity call.",
+    q: "How long is each coaching session?",
+    a: "Individual sessions are approximately 45 minutes long, unless otherwise specified.",
   },
   {
-    q: "Are sessions available online?",
-    a: "Yes. Sessions take place over secure video call, so you can join from wherever you feel most comfortable. [Confirm whether in-person sessions are offered.]",
+    q: "Do I need previous coaching experience?",
+    a: "Not at all. You can begin your coaching journey without any previous experience.",
   },
   {
-    q: "What is your cancellation policy?",
-    a: "Please give at least 24 hours’ notice to reschedule a session; later cancellations and missed sessions may be treated as a completed session. Program refunds are reviewed case by case. Full details are in our Cancellation and Refund Policy.",
+    q: "What is the difference between the two Meraki programs?",
+    a: "Meraki Self-Worth Reset is a shorter, three-week program focused on recognising patterns and beginning to make meaningful changes.\n\nMeraki Identity Reclaim is a six-week flagship program that explores self-worth, people-pleasing, boundaries, personal values, and identity development in greater depth.",
   },
   {
-    q: "Is everything I share confidential?",
-    a: "Yes. What you share stays between us, with the usual exceptions where there is a serious risk of harm to you or others, or where disclosure is required by law. If you are in crisis, please contact your local emergency services or a crisis line right away.",
+    q: "Is there a free introductory session?",
+    a: "Yes. You can book a free introductory session to understand our coaching approach and explore whether a program is suitable for you.",
+  },
+  {
+    q: "Is coaching the same as therapy?",
+    a: "No. Coaching focuses on personal development, self-awareness, goals, and forward-looking action. It does not replace therapy or mental health treatment.",
+  },
+  {
+    q: "What if I cannot attend a scheduled session?",
+    a: "Please inform us at least 24 hours in advance if you need to reschedule. Our cancellation and rescheduling policy applies.",
+    link: { to: "/cancellation", label: "Read the Cancellation and Refund Policy" },
+  },
+  {
+    q: "How do I get started?",
+    a: "You can explore our programs on the Products page or book a free introductory session through the Contact page.\n\nYour journey begins with a conversation.",
   },
 ];
