@@ -233,10 +233,10 @@ export function Faq() {
     <Accordion type="single" collapsible className="divide-y divide-border border-y border-border">
       {FAQS.map((f, i) => (
         <AccordionItem key={f.q} value={`q${i}`} className="border-0">
-          <AccordionTrigger className="py-6 text-left font-serif text-xl hover:no-underline md:text-2xl">
+          <AccordionTrigger className="py-7 text-left font-serif text-2xl leading-snug hover:no-underline md:py-8 md:text-3xl">
             {f.q}
           </AccordionTrigger>
-          <AccordionContent className="space-y-3 pb-6 text-base leading-relaxed text-muted-foreground">
+          <AccordionContent className="max-w-3xl space-y-4 pb-8 text-lg leading-relaxed text-muted-foreground">
             {f.a.split("\n\n").map((p) => (
               <p key={p}>{p}</p>
             ))}

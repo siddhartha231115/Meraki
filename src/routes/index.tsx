@@ -323,13 +323,13 @@ function Home() {
 
       {/* FAQ */}
       <section id="faq" className="bg-cream blend-cream blend-t py-24 md:py-32">
-        <div className="container-page grid gap-12 lg:grid-cols-[1fr_1.6fr]">
-          <SectionHeading eyebrow="FAQ" title="Questions, gently answered.">
+        <div className="container-page">
+          <SectionHeading eyebrow="FAQ" title="Questions, gently answered." center>
             <p>
               Still wondering? <Link to="/contact" className="text-foreground underline underline-offset-4">Get in touch</Link>.
             </p>
           </SectionHeading>
-          <Reveal>
+          <Reveal className="mt-14">
             <Faq />
           </Reveal>
         </div>

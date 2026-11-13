@@ -53,9 +53,11 @@ function Coaching() {
       </section>
 
       <AnchorMethod className="blend-cream blend-b" />
-      <section className="container-page grid gap-12 py-24 lg:grid-cols-[1fr_1.6fr]">
-        <SectionHeading eyebrow="FAQ" title="Before you begin." />
-        <Faq />
+      <section className="container-page py-24">
+        <SectionHeading eyebrow="FAQ" title="Before you begin." center />
+        <div className="mt-14">
+          <Faq />
+        </div>
       </section>
       <FinalCta />
     </>
