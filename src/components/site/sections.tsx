@@ -2,7 +2,7 @@ import type { ReactNode } from "react";
 import { Check, Star } from "lucide-react";
 import { Link } from "@tanstack/react-router";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
-import { ANCHOR, FAQS, PROGRAMS, SITE } from "@/lib/site";
+import { ANCHOR, FAQS, SITE, isFilled } from "@/lib/site";
 import { BookButton } from "./Booking";
 import { Reveal } from "./Reveal";
 import { cn } from "@/lib/utils";
@@ -51,7 +51,7 @@ type Offer = {
   featured?: boolean;
 };
 
-const OFFERS: Offer[] = [
+export const OFFERS: Offer[] = [
   {
     name: "Free Clarity Call",
     price: "Free",
@@ -66,19 +66,11 @@ const OFFERS: Offer[] = [
     cta: "Explore 1:1 Coaching",
     action: "link",
   },
-  ...PROGRAMS.map((p): Offer => ({
-    name: p.name,
-    price: p.price,
-    points: p.points,
-    cta: `Explore ${p.short}`,
-    action: "link",
-    featured: p.featured,
-  })),
 ];
 
 export function Services() {
   return (
-    <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4 lg:items-stretch">
+    <div className="mx-auto grid max-w-3xl gap-6 sm:grid-cols-2">
       {OFFERS.map((s, i) => (
         <Reveal key={s.name} delay={i * 120}>
           <article
@@ -93,7 +85,7 @@ export function Services() {
               </span>
             )}
             <h3 className="text-2xl">{s.name}</h3>
-            <p className="mt-3 font-serif text-xl text-sage">{s.price}</p>
+            {isFilled(s.price) && <p className="mt-3 font-serif text-xl text-sage">{s.price}</p>}
             <ul className="mt-6 flex-1 space-y-3">
               {s.points.map((p) => (
                 <li key={p} className="flex gap-3 text-sm leading-relaxed">
@@ -162,9 +154,6 @@ export function AnchorMethod({ className }: { className?: string }) {
           <div className="p-8 md:p-12">
             <p className="eyebrow mb-4">Who it’s for</p>
             <h3 className="text-3xl leading-tight md:text-4xl">For women learning to come back to themselves.</h3>
-            <p className="placeholder-note mt-5 inline-block text-xs">
-              Add or edit this list in src/lib/site.ts.
-            </p>
           </div>
           <ul className="space-y-4 bg-sage-soft/50 p-8 md:p-12">
             {ANCHOR.whoFor.map((line) => (
@@ -204,10 +193,7 @@ export function Testimonials() {
         {TESTIMONIALS.map((t, i) => (
           <Reveal key={t.who} delay={i * 120}>
             <figure className="card-soft flex h-full flex-col p-8">
-              <span className="placeholder-note self-start text-[0.7rem] uppercase tracking-widest text-muted-foreground">
-                Placeholder testimonial
-              </span>
-              <div className="mt-4 flex gap-1 text-rose" aria-label="5 out of 5 stars">
+              <div className="flex gap-1 text-rose" aria-label="5 out of 5 stars">
                 {Array.from({ length: 5 }).map((_, k) => (
                   <Star key={k} className="size-4 fill-current" aria-hidden />
                 ))}
@@ -222,7 +208,7 @@ export function Testimonials() {
         ))}
       </div>
       <p className="mt-8 text-center text-xs text-muted-foreground">
-        Shared with client permission. Results vary for each individual.
+        Results vary for each individual.
       </p>
     </>
   );
@@ -283,25 +269,16 @@ export function PageHeader({ eyebrow, title, children }: { eyebrow: string; titl
 export function LegalPage({
   title,
   updated,
-  template = true,
   children,
 }: {
   title: string;
   updated?: string;
-  template?: boolean;
   children: ReactNode;
 }) {
   return (
     <>
       <PageHeader eyebrow="Legal" title={title}>
-        <p>
-          {template && (
-            <span className="placeholder-note">
-              Template copy — please have this reviewed by a qualified professional before publishing.
-            </span>
-          )}
-          {updated && <span className={cn("block text-sm", template && "mt-2")}>Last updated: {updated}</span>}
-        </p>
+        {updated && isFilled(updated) && <p className="text-sm">Last updated: {updated}</p>}
       </PageHeader>
       <article className="container-page max-w-3xl space-y-6 py-16 leading-relaxed text-foreground/85 [&_h2]:mt-10 [&_h2]:text-3xl [&_h2]:text-foreground">
         {children}

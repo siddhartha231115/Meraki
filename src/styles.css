@@ -150,12 +150,6 @@
   }
 }
 
-@utility placeholder-note {
-  background: color-mix(in oklab, var(--rose-soft) 70%, transparent);
-  border-radius: 0.25rem;
-  padding-inline: 0.25rem;
-}
-
 /* Soft blend where a tinted section meets the plain white page background.
    Pick the tint (blend-cream / blend-sage / blend-rose), then the edge:
    blend-t = top, blend-b = bottom, blend-tb = both. */

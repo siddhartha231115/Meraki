@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { SITE } from "@/lib/site";
+import { SITE, isFilled } from "@/lib/site";
 import { LegalPage } from "@/components/site/sections";
 
 export const Route = createFileRoute("/cancellation")({
@@ -14,7 +14,7 @@ export const Route = createFileRoute("/cancellation")({
     ],
   }),
   component: () => (
-    <LegalPage title="Cancellation and Refund Policy" updated="[INSERT DATE]" template={false}>
+    <LegalPage title="Cancellation and Refund Policy">
       <p>
         At Meraki, we value your time and commitment to personal growth. This policy explains how session
         cancellations, rescheduling, and program refunds are handled.
@@ -49,13 +49,16 @@ export const Route = createFileRoute("/cancellation")({
 
       <h2>6. Contact Us</h2>
       <p>For cancellation, rescheduling, or refund-related questions:</p>
-      <p>
-        Email:{" "}
-        <a href={`mailto:${SITE.email}`} className="text-foreground underline underline-offset-4">
-          {SITE.email}
-        </a>
-      </p>
-      <p>WhatsApp: {SITE.whatsapp}</p>
+      {isFilled(SITE.email) && (
+        <p>
+          Email:{" "}
+          <a href={`mailto:${SITE.email}`} className="text-foreground underline underline-offset-4">
+            {SITE.email}
+          </a>
+        </p>
+      )}
+      {isFilled(SITE.whatsapp) && <p>WhatsApp: {SITE.whatsapp}</p>}
+      <p className="font-semibold text-foreground">Meraki Life Coaching</p>
     </LegalPage>
   ),
 });

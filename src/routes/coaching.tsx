@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { PROGRAMS, SITE } from "@/lib/site";
+import { PROGRAMS, SITE, isFilled } from "@/lib/site";
 import { AnchorMethod, Faq, FinalCta, PageHeader, SectionHeading, Services } from "@/components/site/sections";
 
 export const Route = createFileRoute("/coaching")({
@@ -31,7 +31,6 @@ function Coaching() {
       </PageHeader>
       <section className="container-page py-24">
         <Services />
-        <p className="placeholder-note mt-8 inline-block text-sm">[Confirm 1:1 session length, frequency, and packages.]</p>
       </section>
 
       <section id="programs" className="bg-cream blend-cream blend-t py-24 md:py-32">
@@ -45,7 +44,7 @@ function Coaching() {
                 <p className="eyebrow mb-3">{p.weeks} weeks</p>
                 <h2 className="text-3xl">{p.name}</h2>
                 <p className="mt-4 leading-relaxed text-muted-foreground">{p.blurb}</p>
-                <p className="mt-5 font-serif text-xl text-sage">{p.price}</p>
+                {isFilled(p.price) && <p className="mt-5 font-serif text-xl text-sage">{p.price}</p>}
               </article>
             ))}
           </div>

@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { SITE } from "@/lib/site";
+import { SITE, isFilled } from "@/lib/site";
 import { BookingForm } from "@/components/site/Booking";
 import { PageHeader } from "@/components/site/sections";
 
@@ -25,14 +25,29 @@ function Contact() {
       </PageHeader>
       <section className="container-page grid gap-14 py-20 lg:grid-cols-[1fr_1.4fr]">
         <div className="space-y-6">
-          <div>
-            <h2 className="text-2xl">Email</h2>
-            <a href={`mailto:${SITE.email}`} className="text-muted-foreground underline underline-offset-4">{SITE.email}</a>
-          </div>
+          {isFilled(SITE.email) && (
+            <div>
+              <h2 className="text-2xl">Email</h2>
+              <a href={`mailto:${SITE.email}`} className="text-muted-foreground underline underline-offset-4">{SITE.email}</a>
+            </div>
+          )}
           <div>
             <h2 className="text-2xl">Instagram</h2>
-            <a href={SITE.instagram} target="_blank" rel="noopener noreferrer" className="text-muted-foreground underline underline-offset-4">Follow along</a>
+            <a href={SITE.instagram} target="_blank" rel="noopener noreferrer" className="text-muted-foreground underline underline-offset-4">{SITE.instagramHandle}</a>
           </div>
+          {isFilled(SITE.whatsapp) && (
+            <div>
+              <h2 className="text-2xl">WhatsApp</h2>
+              <a
+                href={`https://wa.me/${SITE.whatsapp.replace(/[^\d]/g, "")}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-muted-foreground underline underline-offset-4"
+              >
+                {SITE.whatsapp}
+              </a>
+            </div>
+          )}
           <div>
             <h2 className="text-2xl">Where</h2>
             <p className="text-muted-foreground">{SITE.location}</p>

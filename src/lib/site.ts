@@ -1,31 +1,35 @@
 /**
  * EDIT ME — all business details for the Meraki site live here.
- * Anything in [BRACKETS] is a placeholder that needs the coach's approval or replacement.
+ * Leave a value as "" and it is hidden on the site instead of showing a note.
  */
 export const SITE = {
   name: "Meraki",
   tagline: "Find clarity. Build confidence. Create a life that feels like yours.",
   coachName: "Srimathi",
   location: "Bengaluru, India",
-  email: "[EMAIL]",
+  email: "",
   // Paste a full https:// Calendly or booking URL here. While empty, booking buttons open the request form.
   bookingUrl: "",
-  instagram: "[INSTAGRAM URL]",
+  instagram: "https://www.instagram.com/walkwithsri",
+  instagramHandle: "@walkwithsri",
   // Full https:// address of the live site, e.g. https://merakilifecoaching.org
-  siteUrl: "[WEBSITE URL]",
+  siteUrl: "",
   // Include the country code, e.g. +91 98765 43210
-  whatsapp: "[WHATSAPP NUMBER]",
-  // Anchor book links — paste the real URLs when ready. Buttons hide until a https:// link is set.
+  whatsapp: "",
+  // Anchor book links — paste the real https:// URLs when ready.
   book: {
     buyUrl: "",
     sampleUrl: "",
   },
   prices: {
-    oneToOne: "From [PRICE]",
-    selfWorthReset: "[PRICE]",
-    identityReclaim: "[PRICE] or payment plan",
+    oneToOne: "",
+    selfWorthReset: "",
+    identityReclaim: "",
   },
 };
+
+/** True when a detail has really been filled in (not blank, not a [BRACKET] note). */
+export const isFilled = (value: string) => value.trim() !== "" && !value.includes("[");
 
 /**
  * The two Meraki programs. Edit the wording here and it updates on every page.

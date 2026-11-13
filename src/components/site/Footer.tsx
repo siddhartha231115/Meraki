@@ -1,5 +1,5 @@
 import { Link } from "@tanstack/react-router";
-import { NAV, SITE, hasBookingUrl } from "@/lib/site";
+import { NAV, SITE, hasBookingUrl, isFilled } from "@/lib/site";
 import { Wordmark } from "./Header";
 import { useBooking } from "./Booking";
 
@@ -34,14 +34,28 @@ export function Footer() {
           <li><Link to="/disclaimer" className="hover:text-ivory">Coaching Disclaimer</Link></li>
         </FooterCol>
         <FooterCol title="Connect">
-          <li>
-            <a href={`mailto:${SITE.email}`} className="hover:text-ivory">{SITE.email}</a>
-          </li>
+          {isFilled(SITE.email) && (
+            <li>
+              <a href={`mailto:${SITE.email}`} className="hover:text-ivory">{SITE.email}</a>
+            </li>
+          )}
           <li>
             <a href={SITE.instagram} target="_blank" rel="noopener noreferrer" className="hover:text-ivory">
-              Instagram
+              {SITE.instagramHandle}
             </a>
           </li>
+          {isFilled(SITE.whatsapp) && (
+            <li>
+              <a
+                href={`https://wa.me/${SITE.whatsapp.replace(/[^\d]/g, "")}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-ivory"
+              >
+                WhatsApp
+              </a>
+            </li>
+          )}
           <li>
             {hasBookingUrl() ? (
               <a href={SITE.bookingUrl} target="_blank" rel="noopener noreferrer" className="hover:text-ivory">

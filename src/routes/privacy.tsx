@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { SITE } from "@/lib/site";
+import { SITE, isFilled } from "@/lib/site";
 import { LegalPage } from "@/components/site/sections";
 
 export const Route = createFileRoute("/privacy")({
@@ -14,7 +14,7 @@ export const Route = createFileRoute("/privacy")({
     ],
   }),
   component: () => (
-    <LegalPage title="Privacy Policy" updated="11 November 2026" template={false}>
+    <LegalPage title="Privacy Policy" updated="11 November 2026">
       <p>
         At Meraki Life Coaching (“Meraki”, “we”, “our” or “us”), we respect your privacy and are committed to protecting
         the personal information you share with us.
@@ -144,14 +144,16 @@ export const Route = createFileRoute("/privacy")({
       <h2>11. Contact Us</h2>
       <p>For questions about this Privacy Policy or the information we hold about you, contact:</p>
       <p className="font-semibold text-foreground">Meraki Life Coaching</p>
-      <p>
-        Email:{" "}
-        <a href={`mailto:${SITE.email}`} className="text-foreground underline underline-offset-4">
-          {SITE.email}
-        </a>
-      </p>
+      {isFilled(SITE.email) && (
+        <p>
+          Email:{" "}
+          <a href={`mailto:${SITE.email}`} className="text-foreground underline underline-offset-4">
+            {SITE.email}
+          </a>
+        </p>
+      )}
       <p>Location: {SITE.location}</p>
-      <p>Website: {SITE.siteUrl}</p>
+      {isFilled(SITE.siteUrl) && <p>Website: {SITE.siteUrl}</p>}
     </LegalPage>
   ),
 });

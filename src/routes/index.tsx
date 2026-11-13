@@ -6,7 +6,7 @@ import coachAsset from "@/assets/srimathi-portrait.jpg.asset.json";
 const coach = coachAsset.url;
 import bookAsset from "@/assets/anchor-book.jpg.asset.json";
 const journal = bookAsset.url;
-import { FAQS, SITE } from "@/lib/site";
+import { FAQS, SITE, isFilled } from "@/lib/site";
 import { BookButton } from "@/components/site/Booking";
 import { Reveal } from "@/components/site/Reveal";
 import { AnchorMethod, Faq, FinalCta, SectionHeading, Services, Sprig, Testimonials } from "@/components/site/sections";
@@ -35,7 +35,7 @@ export const Route = createFileRoute("/")({
           description: DESC,
           slogan: SITE.tagline,
           areaServed: SITE.location,
-          email: SITE.email,
+          ...(isFilled(SITE.email) ? { email: SITE.email } : {}),
         }),
       },
       {
@@ -155,8 +155,7 @@ function Home() {
             <SectionHeading eyebrow="Meet your coach" title="Support that feels human, practical, and personal.">
               <p>
                 Hi, I’m {SITE.coachName}. I created Meraki after noticing how many thoughtful, capable people quietly
-                lose touch with themselves while doing everything “right.”{" "}
-                <span className="placeholder-note">[Add your background and any credentials you hold.]</span>
+                lose touch with themselves while doing everything “right.”
               </p>
               <p className="mt-4">
                 My approach is gentle but honest: we slow down, look clearly at what is happening, and take real steps
@@ -260,11 +259,6 @@ function Home() {
                   Read a Sample
                 </a>
               </div>
-              {(!SITE.book.buyUrl || !SITE.book.sampleUrl) && (
-                <p className="placeholder-note mt-4 inline-block text-xs">
-                  Add the buy and sample links in src/lib/site.ts to activate these buttons.
-                </p>
-              )}
             </Reveal>
           </div>
         </div>

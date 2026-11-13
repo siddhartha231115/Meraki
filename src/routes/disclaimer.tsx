@@ -13,7 +13,7 @@ export const Route = createFileRoute("/disclaimer")({
     ],
   }),
   component: () => (
-    <LegalPage title="Coaching Disclaimer" template={false}>
+    <LegalPage title="Coaching Disclaimer">
       <p>At Meraki, we believe in the power of self-awareness, reflection, and intentional personal growth.</p>
       <p>However, it is important to understand what coaching involves.</p>
 

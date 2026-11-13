@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Link } from "@tanstack/react-router";
-import { SITE } from "@/lib/site";
+import { SITE, isFilled } from "@/lib/site";
 import { LegalPage } from "@/components/site/sections";
 
 export const Route = createFileRoute("/terms")({
@@ -15,7 +15,7 @@ export const Route = createFileRoute("/terms")({
     ],
   }),
   component: () => (
-    <LegalPage title="Terms and Conditions" updated="[INSERT DATE]" template={false}>
+    <LegalPage title="Terms and Conditions">
       <p>
         Welcome to Meraki Life Coaching. By accessing this website or purchasing our coaching programs, you agree to the
         following terms and conditions.
@@ -92,12 +92,14 @@ export const Route = createFileRoute("/terms")({
 
       <h2>11. Contact</h2>
       <p>For questions regarding these Terms and Conditions:</p>
-      <p>
-        Email:{" "}
-        <a href={`mailto:${SITE.email}`} className="text-foreground underline underline-offset-4">
-          {SITE.email}
-        </a>
-      </p>
+      {isFilled(SITE.email) && (
+        <p>
+          Email:{" "}
+          <a href={`mailto:${SITE.email}`} className="text-foreground underline underline-offset-4">
+            {SITE.email}
+          </a>
+        </p>
+      )}
       <p className="font-semibold text-foreground">Meraki Life Coaching</p>
       <p>
         Cancellations, rescheduling and refunds are covered separately in our{" "}

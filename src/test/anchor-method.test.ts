@@ -1,5 +1,6 @@
 import { describe, expect, it } from "vitest";
-import { ANCHOR, PROGRAMS, SITE } from "@/lib/site";
+import { OFFERS } from "@/components/site/sections";
+import { ANCHOR, PROGRAMS, SITE, isFilled } from "@/lib/site";
 
 describe("Meraki Identity Reclaim", () => {
   it("follows the ANCHOR Method across six weeks", () => {
@@ -22,9 +23,33 @@ describe("The two Meraki programs", () => {
     expect(PROGRAMS.map((p) => p.name)).toEqual(["Meraki Self-Worth Reset", "Meraki Identity Reclaim"]);
     expect(PROGRAMS.map((p) => p.weeks)).toEqual(["3", "6"]);
   });
+});
 
-  it("prices both programs in the editable site file", () => {
-    expect(SITE.prices.selfWorthReset).toBe("[PRICE]");
-    expect(SITE.prices.identityReclaim).toContain("payment plan");
+describe("Site details", () => {
+  it("links Instagram to the coach's own handle", () => {
+    expect(SITE.instagramHandle).toBe("@walkwithsri");
+    expect(SITE.instagram).toBe("https://www.instagram.com/walkwithsri");
+  });
+
+  it("keeps bracketed placeholder text out of every detail", () => {
+    expect(JSON.stringify(SITE)).not.toContain("[");
+  });
+
+  it("treats blank and bracketed values as unfilled so they stay hidden", () => {
+    expect(isFilled("")).toBe(false);
+    expect(isFilled("[PRICE]")).toBe(false);
+    expect(isFilled("hello@meraki.com")).toBe(true);
+  });
+});
+
+describe("The offers row", () => {
+  it("shows only the free clarity call and 1:1 coaching", () => {
+    expect(OFFERS.map((o) => o.name)).toEqual(["Free Clarity Call", "1:1 Coaching"]);
+  });
+
+  it("shows no program card", () => {
+    const names = OFFERS.map((o) => o.name).join(" ");
+    expect(names).not.toContain("Self-Worth Reset");
+    expect(names).not.toContain("Identity Reclaim");
   });
 });
