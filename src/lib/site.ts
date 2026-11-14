@@ -18,7 +18,7 @@ export const SITE = {
   whatsapp: "",
   // Anchor book links — paste the real https:// URLs when ready.
   book: {
-    buyUrl: "",
+    buyUrl: "https://merakionlinestore.myinstamojo.com/product/anchor-come-home-to-yourself/",
     sampleUrl: "",
   },
   prices: {
