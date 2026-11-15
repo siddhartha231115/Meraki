@@ -130,6 +130,7 @@ export const NAV = [
   { label: "About Me", to: "/about" },
   { label: "Products", to: "/coaching" },
   { label: "Identity Reclaim", to: "/", hash: "identity-reclaim" },
+  { label: "Anchor", to: "/", hash: "book" },
   { label: "Testimonials", to: "/", hash: "testimonials" },
   { label: "Contact", to: "/contact" },
 ] as const;
