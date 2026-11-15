@@ -6,10 +6,10 @@ import coachAsset from "@/assets/srimathi-portrait.jpg.asset.json";
 const coach = coachAsset.url;
 import bookAsset from "@/assets/anchor-book.jpg.asset.json";
 const journal = bookAsset.url;
-import { FAQS, SITE, isFilled } from "@/lib/site";
+import { COACH_INTRO, FAQS, SITE, isFilled } from "@/lib/site";
 import { BookButton } from "@/components/site/Booking";
 import { Reveal } from "@/components/site/Reveal";
-import { AnchorMethod, Faq, FinalCta, QuietTruths, SectionHeading, Services, Sprig, Testimonials } from "@/components/site/sections";
+import { AnchorMethod, Faq, FinalCta, QuietTruths, SectionHeading, Services, Sprig } from "@/components/site/sections";
 
 const TITLE = "Meraki Coaching | Clarity, Confidence and Personal Growth";
 const DESC =
@@ -24,6 +24,8 @@ export const Route = createFileRoute("/")({
       { property: "og:description", content: DESC },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
+      { property: "og:image", content: hero },
+      { name: "twitter:image", content: hero },
     ],
     scripts: [
       {
@@ -152,22 +154,16 @@ function Home() {
             />
           </Reveal>
           <div>
-            <SectionHeading eyebrow="Meet your coach" title="Support that feels human, practical, and personal.">
-              <p>
-                Hi, I’m {SITE.coachName}. I created Meraki after noticing how many thoughtful, capable people quietly
-                lose touch with themselves while doing everything “right.”
-              </p>
-              <p className="mt-4">
-                My approach is gentle but honest: we slow down, look clearly at what is happening, and take real steps
-                you can sustain.
-              </p>
+            <SectionHeading eyebrow="Meet your coach" title={SITE.coachName}>
+              <p>{COACH_INTRO.audience}</p>
+              <p className="mt-4">{COACH_INTRO.sessions}</p>
             </SectionHeading>
             <Reveal delay={100}>
               <Link
                 to="/about"
                 className="mt-10 inline-flex h-12 items-center rounded-full border border-foreground/20 px-7 text-[0.95rem] tracking-wide transition-colors hover:bg-foreground hover:text-background"
               >
-                My Story
+                About Me
               </Link>
             </Reveal>
           </div>
@@ -265,16 +261,6 @@ function Home() {
       </section>
 
       <AnchorMethod className="blend-cream blend-t" />
-
-      {/* TESTIMONIALS */}
-      <section id="testimonials" className="bg-rose-soft/60 blend-rose blend-b py-24 md:py-32">
-        <div className="container-page">
-          <SectionHeading eyebrow="Kind words" title="In their own words." center />
-          <div className="mt-14">
-            <Testimonials />
-          </div>
-        </div>
-      </section>
 
       {/* QUIET TRUTHS */}
       <section id="quiet-truths" className="py-24 md:py-32">

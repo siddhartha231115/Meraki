@@ -12,3 +12,4 @@
 ## Rules
 - All editable business details (name, email, prices, booking URL, FAQ) live in src/lib/site.ts so non-devs can edit one file.
 - Booking buttons use BookButton/useBooking: open the external booking URL when set, otherwise the request-form modal.
+- Home and About reuse the coach introduction in src/lib/site.ts to keep supplied coaching details consistent.

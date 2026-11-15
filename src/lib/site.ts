@@ -31,6 +31,11 @@ export const SITE = {
 /** True when a detail has really been filled in (not blank, not a [BRACKET] note). */
 export const isFilled = (value: string) => value.trim() !== "" && !value.includes("[");
 
+export const COACH_INTRO = {
+  audience: "Meraki primarily works with women aged 25–45 who want to strengthen their self-worth, develop healthier boundaries, move beyond people-pleasing patterns, and build a stronger sense of identity.",
+  sessions: "All coaching sessions are conducted online. Individual sessions are approximately 45 minutes long, unless otherwise specified.",
+};
+
 /**
  * The two Meraki programs. Edit the wording here and it updates on every page.
  */
@@ -144,7 +149,6 @@ export const NAV = [
   { label: "Products", to: "/coaching" },
   { label: "Identity Reclaim", to: "/", hash: "identity-reclaim" },
   { label: "Anchor", to: "/", hash: "book" },
-  { label: "Testimonials", to: "/", hash: "testimonials" },
   { label: "Contact", to: "/contact" },
 ] as const;
 

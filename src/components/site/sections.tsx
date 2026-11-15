@@ -1,5 +1,5 @@
 import type { ReactNode } from "react";
-import { Check, Instagram, Star } from "lucide-react";
+import { Check, Instagram } from "lucide-react";
 import { Link } from "@tanstack/react-router";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { ANCHOR, FAQS, QUIET_TRUTHS, SITE, isFilled } from "@/lib/site";
@@ -177,40 +177,6 @@ export function AnchorMethod({ className }: { className?: string }) {
         </Reveal>
       </div>
     </section>
-  );
-}
-
-const TESTIMONIALS = [
-  { quote: "I came in feeling scattered and left each session with something real to work on. I finally feel like I’m making decisions for me.", who: "A.M.", service: "1:1 Coaching" },
-  { quote: "The clarity call alone helped me name what I’d been avoiding for years. It was gentle, honest, and surprisingly practical.", who: "Priya", service: "Free Clarity Call" },
-  { quote: "Learning to set boundaries without guilt has changed my relationships and my work. I feel steadier in myself.", who: "J.K.", service: "Meraki Identity Reclaim" },
-];
-
-export function Testimonials() {
-  return (
-    <>
-      <div className="grid gap-6 md:grid-cols-3">
-        {TESTIMONIALS.map((t, i) => (
-          <Reveal key={t.who} delay={i * 120}>
-            <figure className="card-soft flex h-full flex-col p-8">
-              <div className="flex gap-1 text-rose" aria-label="5 out of 5 stars">
-                {Array.from({ length: 5 }).map((_, k) => (
-                  <Star key={k} className="size-4 fill-current" aria-hidden />
-                ))}
-              </div>
-              <blockquote className="mt-4 flex-1 font-serif text-xl leading-snug">“{t.quote}”</blockquote>
-              <figcaption className="mt-6 text-sm">
-                <span className="font-semibold">{t.who}</span>
-                <span className="text-muted-foreground"> · {t.service}</span>
-              </figcaption>
-            </figure>
-          </Reveal>
-        ))}
-      </div>
-      <p className="mt-8 text-center text-xs text-muted-foreground">
-        Results vary for each individual.
-      </p>
-    </>
   );
 }
 
