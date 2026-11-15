@@ -9,7 +9,7 @@ const journal = bookAsset.url;
 import { FAQS, SITE, isFilled } from "@/lib/site";
 import { BookButton } from "@/components/site/Booking";
 import { Reveal } from "@/components/site/Reveal";
-import { AnchorMethod, Faq, FinalCta, SectionHeading, Services, Sprig, Testimonials } from "@/components/site/sections";
+import { AnchorMethod, Faq, FinalCta, QuietTruths, SectionHeading, Services, Sprig, Testimonials } from "@/components/site/sections";
 
 const TITLE = "Meraki Coaching | Clarity, Confidence and Personal Growth";
 const DESC =
@@ -272,6 +272,16 @@ function Home() {
           <SectionHeading eyebrow="Kind words" title="In their own words." center />
           <div className="mt-14">
             <Testimonials />
+          </div>
+        </div>
+      </section>
+
+      {/* QUIET TRUTHS */}
+      <section id="quiet-truths" className="py-24 md:py-32">
+        <div className="container-page">
+          <SectionHeading eyebrow={`Quiet truths from ${SITE.instagramHandle}`} title="Small notes for the days you need them." center />
+          <div className="mt-14">
+            <QuietTruths />
           </div>
         </div>
       </section>

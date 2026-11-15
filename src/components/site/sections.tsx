@@ -1,8 +1,8 @@
 import type { ReactNode } from "react";
-import { Check, Star } from "lucide-react";
+import { Check, Instagram, Star } from "lucide-react";
 import { Link } from "@tanstack/react-router";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
-import { ANCHOR, FAQS, SITE, isFilled } from "@/lib/site";
+import { ANCHOR, FAQS, QUIET_TRUTHS, SITE, isFilled } from "@/lib/site";
 import { BookButton } from "./Booking";
 import { Reveal } from "./Reveal";
 import { cn } from "@/lib/utils";
@@ -210,6 +210,40 @@ export function Testimonials() {
       <p className="mt-8 text-center text-xs text-muted-foreground">
         Results vary for each individual.
       </p>
+    </>
+  );
+}
+
+/** Quiet truths — short notes from @walkwithsri on Instagram. */
+export function QuietTruths() {
+  return (
+    <>
+      <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+        {QUIET_TRUTHS.map((t, i) => (
+          <Reveal key={t.topic} delay={(i % 3) * 100}>
+            <figure className="card-soft flex h-full flex-col p-8">
+              <p className="eyebrow">{t.topic}</p>
+              <blockquote className="mt-4 flex-1 font-serif text-2xl italic leading-snug text-foreground/90">
+                “{t.quote}”
+              </blockquote>
+              <figcaption className="mt-6 text-xs font-semibold tracking-[0.22em] text-muted-foreground">
+                Meraki · Note {String(i + 1).padStart(2, "0")}
+              </figcaption>
+            </figure>
+          </Reveal>
+        ))}
+      </div>
+      <Reveal className="mt-12 text-center">
+        <a
+          href={SITE.instagram}
+          target="_blank"
+          rel="noreferrer"
+          className="inline-flex h-12 items-center gap-2 rounded-full border border-foreground/20 px-8 text-[0.95rem] tracking-wide transition-colors hover:bg-foreground hover:text-background"
+        >
+          <Instagram className="size-4" aria-hidden />
+          Follow {SITE.instagramHandle} on Instagram
+        </a>
+      </Reveal>
     </>
   );
 }

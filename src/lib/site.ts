@@ -123,6 +123,19 @@ export const ANCHOR = {
   ],
 };
 
+/**
+ * Quiet truths — short notes shared on Instagram (@walkwithsri).
+ * Edit the wording here and it updates on the home page.
+ */
+export const QUIET_TRUTHS = [
+  { topic: "on guilt", quote: "Guilt is often loyalty to a version of you that no longer exists." },
+  { topic: "on boundaries", quote: "A boundary is not a wall. It is the shape of your self-respect." },
+  { topic: "on self-worth", quote: "You don't have to earn the rest you've been denying yourself." },
+  { topic: "on identity", quote: "Underneath the roles, there is still a you waiting to be remembered." },
+  { topic: "on people pleasing", quote: "Being easy to love does not mean being easy to use." },
+  { topic: "on exhaustion", quote: "What you're calling laziness is often unprocessed grief." },
+];
+
 export const hasBookingUrl = () => /^https?:\/\//.test(SITE.bookingUrl);
 
 export const NAV = [
