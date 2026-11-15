@@ -252,7 +252,7 @@ function Home() {
                 </a>
                 <a
                   href={SITE.book.sampleUrl || "#book"}
-                  target={SITE.book.sampleUrl ? "_blank" : undefined}
+                  target={/^https?:\/\//.test(SITE.book.sampleUrl) ? "_blank" : undefined}
                   rel="noreferrer"
                   className="inline-flex h-12 items-center rounded-full border border-foreground/20 px-8 text-[0.95rem] tracking-wide transition-colors hover:bg-foreground hover:text-background"
                 >

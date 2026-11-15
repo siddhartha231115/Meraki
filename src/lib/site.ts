@@ -19,7 +19,7 @@ export const SITE = {
   // Anchor book links — paste the real https:// URLs when ready.
   book: {
     buyUrl: "https://merakionlinestore.myinstamojo.com/product/anchor-come-home-to-yourself/",
-    sampleUrl: "",
+    sampleUrl: "/sample",
   },
   prices: {
     oneToOne: "",
