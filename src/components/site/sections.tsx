@@ -63,8 +63,8 @@ export const OFFERS: Offer[] = [
     name: "1:1 Coaching",
     price: SITE.prices.oneToOne,
     points: ["Personalized private sessions", "Goal and action planning", "Ongoing accountability and support"],
-    cta: "Explore 1:1 Coaching",
-    action: "link",
+    cta: "Book 1:1 Coaching",
+    action: "book",
   },
 ];
 
