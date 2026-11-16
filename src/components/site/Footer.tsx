@@ -24,10 +24,7 @@ export function Footer() {
             </li>
           ))}
         </FooterCol>
-        <FooterCol title="Pages">
-          <li><Link to="/about" className="hover:text-ivory">About</Link></li>
-          <li><Link to="/coaching" className="hover:text-ivory">Coaching Services</Link></li>
-          <li><Link to="/contact" className="hover:text-ivory">Contact</Link></li>
+        <FooterCol title="Legal">
           <li><Link to="/privacy" className="hover:text-ivory">Privacy Policy</Link></li>
           <li><Link to="/terms" className="hover:text-ivory">Terms and Conditions</Link></li>
           <li><Link to="/cancellation" className="hover:text-ivory">Cancellation and Refund</Link></li>
