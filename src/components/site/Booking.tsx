@@ -15,23 +15,35 @@ import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { SITE, hasBookingUrl } from "@/lib/site";
 
-const BookingCtx = createContext<{ open: () => void }>({ open: () => {} });
+export type BookingIntentKey = "clarity" | "coaching" | "program";
+
+export const INTENTS: Record<BookingIntentKey, { eyebrow: string; title: string }> = {
+  clarity: { eyebrow: "Free clarity call", title: "Request your call" },
+  coaching: { eyebrow: "1:1 coaching", title: "Request your session" },
+  program: { eyebrow: "Meraki program", title: "Request your place" },
+};
+
+const BookingCtx = createContext<{ open: (intent?: unknown) => void }>({ open: () => {} });
 export const useBooking = () => useContext(BookingCtx);
 
 export function BookingProvider({ children }: { children: ReactNode }) {
   const [isOpen, setOpen] = useState(false);
-  const open = () => {
+  const [intent, setIntent] = useState<BookingIntentKey>("clarity");
+  const open = (next?: unknown) => {
+    // Guards against being wired straight to onClick, which passes the click event.
+    setIntent(typeof next === "string" && next in INTENTS ? (next as BookingIntentKey) : "clarity");
     if (hasBookingUrl()) window.open(SITE.bookingUrl, "_blank", "noopener,noreferrer");
     else setOpen(true);
   };
+  const copy = INTENTS[intent];
   return (
     <BookingCtx.Provider value={{ open }}>
       {children}
       <Dialog open={isOpen} onOpenChange={setOpen}>
         <DialogContent className="max-h-[92vh] overflow-y-auto rounded-3xl border-border bg-card sm:max-w-lg">
           <DialogHeader>
-            <p className="eyebrow">Free clarity call</p>
-            <DialogTitle className="font-serif text-3xl font-medium">Request your call</DialogTitle>
+            <p className="eyebrow">{copy.eyebrow}</p>
+            <DialogTitle className="font-serif text-3xl font-medium">{copy.title}</DialogTitle>
             <DialogDescription>
               Share a few details and a time that suits you. You will receive a reply to confirm.
             </DialogDescription>
@@ -90,7 +102,7 @@ export function BookingForm({ onDone, compact }: { onDone?: () => void; compact?
         <CheckCircle2 className="size-10 text-sage" aria-hidden />
         <h3 className="text-2xl">Thank you for reaching out.</h3>
         <p className="max-w-sm text-sm text-muted-foreground">
-          Your request has been received. You will hear back soon to confirm your call time.
+          Your request has been received. You will hear back soon to confirm your time.
         </p>
         {onDone && (
           <Button variant="soft" size="xl" className="mt-2" onClick={onDone}>
@@ -160,10 +172,14 @@ function Field({
   );
 }
 
-export function BookButton({ children = "Book a Free Clarity Call", ...props }: ButtonProps) {
+export function BookButton({
+  children = "Book a Free Clarity Call",
+  intent = "clarity",
+  ...props
+}: ButtonProps & { intent?: BookingIntentKey }) {
   const { open } = useBooking();
   return (
-    <Button variant="hero" size="xl" onClick={open} {...props}>
+    <Button variant="hero" size="xl" onClick={() => open(intent)} {...props}>
       {children}
     </Button>
   );

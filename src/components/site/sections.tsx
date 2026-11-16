@@ -3,7 +3,7 @@ import { Check, Instagram } from "lucide-react";
 import { Link } from "@tanstack/react-router";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { ANCHOR, FAQS, QUIET_TRUTHS, SITE, isFilled } from "@/lib/site";
-import { BookButton } from "./Booking";
+import { BookButton, type BookingIntentKey } from "./Booking";
 import { Reveal } from "./Reveal";
 import { cn } from "@/lib/utils";
 
@@ -48,6 +48,7 @@ type Offer = {
   points: string[];
   cta: string;
   action: "book" | "link";
+  intent: BookingIntentKey;
   featured?: boolean;
 };
 
@@ -58,6 +59,7 @@ export const OFFERS: Offer[] = [
     points: ["30-minute private conversation", "Identify the main challenge", "Leave with one practical next step"],
     cta: "Book Your Call",
     action: "book",
+    intent: "clarity",
   },
   {
     name: "1:1 Coaching",
@@ -65,6 +67,7 @@ export const OFFERS: Offer[] = [
     points: ["Personalized private sessions", "Goal and action planning", "Ongoing accountability and support"],
     cta: "Book 1:1 Coaching",
     action: "book",
+    intent: "coaching",
   },
 ];
 
@@ -96,7 +99,7 @@ export function Services() {
             </ul>
             <div className="mt-8">
               {s.action === "book" ? (
-                <BookButton variant={s.featured ? "hero" : "soft"} className="w-full">
+                <BookButton variant={s.featured ? "hero" : "soft"} intent={s.intent} className="w-full">
                   {s.cta}
                 </BookButton>
               ) : (
@@ -166,7 +169,7 @@ export function AnchorMethod({ className }: { className?: string }) {
         </Reveal>
 
         <Reveal className="mt-12 text-center">
-          <BookButton variant="hero">Join Identity Reclaim</BookButton>
+          <BookButton variant="hero" intent="program">Join Identity Reclaim</BookButton>
           <p className="mt-5 text-sm text-muted-foreground">
             Prefer to talk first?{" "}
             <Link to="/contact" className="text-foreground underline underline-offset-4">

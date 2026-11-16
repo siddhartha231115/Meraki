@@ -1,4 +1,5 @@
 import { describe, expect, it } from "vitest";
+import { INTENTS } from "@/components/site/Booking";
 import { OFFERS } from "@/components/site/sections";
 import { ANCHOR, PROGRAMS, SITE, isFilled } from "@/lib/site";
 
@@ -51,5 +52,12 @@ describe("The offers row", () => {
     const names = OFFERS.map((o) => o.name).join(" ");
     expect(names).not.toContain("Self-Worth Reset");
     expect(names).not.toContain("Identity Reclaim");
+  });
+
+  it("sends each offer to its own booking form, never the free-call one", () => {
+    expect(OFFERS.find((o) => o.name === "1:1 Coaching")?.intent).toBe("coaching");
+    expect(OFFERS.find((o) => o.name === "Free Clarity Call")?.intent).toBe("clarity");
+    expect(INTENTS.coaching.eyebrow).toBe("1:1 coaching");
+    expect(INTENTS.coaching.eyebrow).not.toBe(INTENTS.clarity.eyebrow);
   });
 });
