@@ -1,6 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import coachAsset from "@/assets/srimathi-portrait.jpg.asset.json";
-const coach = coachAsset.url;
+const coach = "/images/srimathi-portrait.jpg";
 import { COACH_INTRO, SITE } from "@/lib/site";
 import { FinalCta, PageHeader } from "@/components/site/sections";
 import { Reveal } from "@/components/site/Reveal";
@@ -14,8 +13,6 @@ export const Route = createFileRoute("/about")({
       { property: "og:description", content: "Engineer by profession, coach by purpose. The story behind Meraki Life Coaching." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
-      { property: "og:image", content: coach },
-      { name: "twitter:image", content: coach },
     ],
   }),
   component: About,

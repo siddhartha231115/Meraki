@@ -1,11 +1,8 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowRight, Compass, Feather, Heart, Shield, Sparkles, Sun } from "lucide-react";
-import heroAsset from "@/assets/hero-photo.jpg.asset.json";
-const hero = heroAsset.url;
-import coachAsset from "@/assets/srimathi-portrait.jpg.asset.json";
-const coach = coachAsset.url;
-import bookAsset from "@/assets/anchor-book.jpg.asset.json";
-const journal = bookAsset.url;
+const hero = "/images/hero-photo.jpg";
+const coach = "/images/srimathi-portrait.jpg";
+const journal = "/images/anchor-book.png";
 import { COACH_INTRO, FAQS, SITE, isFilled } from "@/lib/site";
 import { BookButton } from "@/components/site/Booking";
 import { Reveal } from "@/components/site/Reveal";
@@ -24,8 +21,6 @@ export const Route = createFileRoute("/")({
       { property: "og:description", content: DESC },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
-      { property: "og:image", content: hero },
-      { name: "twitter:image", content: hero },
     ],
     scripts: [
       {
