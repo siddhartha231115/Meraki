@@ -1,0 +1,10 @@
+{
+  // Cloudflare Workers settings for Meraki. The build (nitro "cloudflare-module" preset,
+  // supplied by @lovable.dev/vite-tanstack-config) merges this into dist/server/wrangler.json,
+  // which sets `main` and the static-assets directory itself.
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "meraki",
+  "compatibility_date": "2026-11-01",
+  "compatibility_flags": ["nodejs_compat"],
+  "observability": { "enabled": true }
+}

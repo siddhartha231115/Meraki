@@ -13,3 +13,4 @@
 - All editable business details (name, email, prices, booking URL, FAQ) live in src/lib/site.ts so non-devs can edit one file.
 - Booking buttons use BookButton/useBooking: open the external booking URL when set, otherwise the request-form modal.
 - Home and About reuse the coach introduction in src/lib/site.ts to keep supplied coaching details consistent.
+- Cloudflare deploy: keep the built-in nitro cloudflare-module build; root wrangler.jsonc only carries Worker settings and `npm run deploy` ships dist/server/wrangler.json — adding @cloudflare/vite-plugin would duplicate the adapter and break the Lovable preview.
